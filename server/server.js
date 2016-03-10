@@ -1,0 +1,52 @@
+// Requires
+var express = require('express'),
+  app = express(),
+  path = require('path'),
+  logger = require('morgan'),
+  mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
+  apiRoutes = require('./api_routes.js'),
+  cors = require('cors'),
+  config = require('./config'),
+  mongodb_url = 'mongodb://159.203.224.140:27017/gaffer';
+  console.log('mongodb_url', mongodb_url);
+
+// Routers Requires
+  var fdRoutes = require('./routes/fdRoutes.js'),
+    twRoutes = require('./routes/twRoutes.js');
+
+// Connect to DB on Digital Ocean
+mongoose.connect(mongodb_url, function (err) {
+  if (err) console.log(err)
+  console.log('Connected to MongoDB');
+})
+
+// Setup Middleware
+app.set('port', process.env.PORT || 3000) // I could just hardcode this to 3k, but...
+app.use(logger('dev'))
+app.use(bodyParser.urlencoded({
+  extended : true
+}))
+// Why is this here?i
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization')
+  next()
+})
+app.use(bodyParser.json())
+app.use(cors())
+
+// Initialize routes to use
+app.get('/', function (req, res) {
+  res.sendFile('index.html', {root: './client'})
+})
+app.use('/api', apiRoutes)
+app.use('/api/fd', fdRoutes)
+app.use('/api/tw', twRoutes)
+
+
+// Set the port to run
+app.listen(app.get('port'), function () {
+  console.log('Express server listening on port ' + app.get('port'))
+})

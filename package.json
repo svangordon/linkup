@@ -1,0 +1,34 @@
+{
+  "name": "linkup",
+  "version": "1.0.0",
+  "description": "a news aggregator for EPL teams",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svangordon/linkup.git"
+  },
+  "author": "Svangordon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svangordon/linkup/issues"
+  },
+  "homepage": "https://github.com/svangordon/linkup#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "feedparser": "^1.1.4",
+    "iconv": "^2.1.11",
+    "moment": "^2.12.0",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "pubsubhubbub": "^0.4.1",
+    "request": "^2.69.0",
+    "twitter": "^1.2.5",
+    "xml2js": "^0.4.16"
+  }
+}
