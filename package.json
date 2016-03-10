@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/svangordon/linkup#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "feedparser": "^1.1.4",
     "iconv": "^2.1.11",
+    "jsonwebtoken": "^5.7.0",
     "moment": "^2.12.0",
     "mongoose": "^4.4.6",
     "morgan": "^1.7.0",

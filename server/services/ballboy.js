@@ -1,4 +1,4 @@
-// siggurdson is responsible for rss feeds
+// ballboy
 
 // =====================
 // Requires
@@ -91,4 +91,4 @@ function done(err) {
   process.exit();
 }
 
-fetch('http://feeds.arsenal.com/arsenal-news')
+module.exports = fetch

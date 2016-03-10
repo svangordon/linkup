@@ -1,3 +1,4 @@
+// This is no longer used and should be removed, sooner or later
 // =====START GLOBAL VAR DECLARATION=====
 var //ctrls = require('./controllers.js'),
   fdCtrls = require('./controllers/fdControllers.js'),

@@ -5,17 +5,26 @@ var express = require('express'),
   logger = require('morgan'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
-  apiRoutes = require('./api_routes.js'),
+  // apiRoutes = require('./api_routes.js'),
   cors = require('cors'),
   config = require('./config'),
-  mongodb_url = 'mongodb://159.203.224.140:27017/gaffer';
-  console.log('mongodb_url', mongodb_url);
+  mongodb_url = 'mongodb://159.203.224.140:27017/gaffer',
+  jwt = require('jsonwebtoken')
 
-// Routers Requires
-  var fdRoutes = require('./routes/fdRoutes.js'),
-    twRoutes = require('./routes/twRoutes.js');
 
+// ==============================
+// | Routers Requires
+// ==============================
+  var fdRoutes = require('./routes/fdRoutes.js')
+  , twRoutes = require('./routes/twRoutes.js')
+  , userRoutes = require('./routes/userRoutes.js')
+  , authRoutes = require('./routes/authRoutes.js')
+  , authCtrls = require('./controllers/authControllers.js')
+  , meRoutes = require('./routes/meRoutes.js')
+
+// ===============================
 // Connect to DB on Digital Ocean
+// ===============================
 mongoose.connect(mongodb_url, function (err) {
   if (err) console.log(err)
   console.log('Connected to MongoDB');
@@ -38,13 +47,24 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // Initialize routes to use
+// =============================
+// Static content
+app.use(express.static(__dirname + '/../client'))
+
+// Homepage
 app.get('/', function (req, res) {
-  res.sendFile('index.html', {root: './client'})
+  res.sendFile('index.html', {root: './client/angular/views'})
 })
-app.use('/api', apiRoutes)
+
+// Authentication
+app.use('/authenticate', authRoutes)
+app.use(authCtrls.middleware)
+
+// endpoints
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
-
+app.use('/api/users', userRoutes)
+app.use('/me', meRoutes)
 
 // Set the port to run
 app.listen(app.get('port'), function () {
