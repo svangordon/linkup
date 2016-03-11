@@ -1,37 +1,66 @@
 <!DOCTYPE html>
-<html ng-app="linkUpApp">
+<html ng-app="linkupApp">
   <head>
     <meta charset="utf-8">
     <title>LinkUp</title>
+    <base href="/" target="_blank" />
     <!-- Pull in external libraries -->
       <!-- jQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" charset="utf-8"></script>
       <!-- Angular -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js" charset="utf-8"></script>
+        <!-- ngRoute -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js" charset="utf-8"></script>
       <!-- Materialize -->
         <!-- Compiled and minified CSS -->
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <!-- Compiled and minified JavaScript -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
+          <!-- load bootstrap from CDN and custom CSS -->
+          	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/paper/bootstrap.min.css">
+          	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
+
+
     <!-- My angular -->
       <!-- module -->
+      <script src="/angular/app-routes.js" charset="utf-8"></script>
       <script src="/angular/app.js" charset="utf-8"></script>
 
-      <!-- controllers -->
-
       <!-- services -->
+      <script src="/angular/services/authService.js" charset="utf-8"></script>
+      <script src="/angular/services/userService.js" charset="utf-8"></script>
+
+      <!-- controllers -->
+      <script src="/angular/controllers/userCtrl.js" charset="utf-8"></script>
+      <script src="/angular/controllers/mainCtrl.js" charset="utf-8"></script>
 
   </head>
-  <body>
-    Hello. You have reached index.html. I'm sorry I couldn't write an actual web page...
-    <form action="/authenticate" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username"/>
-        <br />
-        <label for="password">Password</label>
-        <input type="password" name="password">
-        <input type="submit" value="Submit">
-    </form>
+  <body ng-controller="mainController as main">
+    <div class="container">
+      <header>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo">LinkUp</a>
+            <ul id="nav-mobile" class="right">
+              <li><a href="/users">Users</a></li>
+              <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+              <li ng-if="main.loggedIn">Hello {{main.user.name}}</li>
+              <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+              <li ><a href="/about">About</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <h1>{{main.bigMessage}}</h1>
+        <div ng-view></div>
+      </main>
+
+      <footer>
+      </footer>
+
+    </div>
   </body>
 </html>

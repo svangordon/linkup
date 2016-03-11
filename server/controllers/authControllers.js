@@ -21,6 +21,7 @@ module.exports = {
             res.json({success: false, message: 'Authentication failed. Invalid password'})
           } else {
             // create token
+            console.log('pword match');
             var token = jwt.sign({
               name: user.name,
               username: user.username
@@ -39,6 +40,8 @@ module.exports = {
       })
   }
   , middleware: function (req, res, next) {
+      console.log('middleware fired');
+      console.log(req.body)
       // check for token
       var token = req.body.token || req.params.token || req.headers['x-access-token'];
       // decode token

@@ -57,14 +57,14 @@ app.get('/', function (req, res) {
 })
 
 // Authentication
-app.use('/authenticate', authRoutes)
+app.use('/api/authenticate', authRoutes)
 app.use(authCtrls.middleware)
 
 // endpoints
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
 app.use('/api/users', userRoutes)
-app.use('/me', meRoutes)
+app.use('/api/me', meRoutes)
 
 // Set the port to run
 app.listen(app.get('port'), function () {
