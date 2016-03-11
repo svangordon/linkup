@@ -1,14 +1,17 @@
 // =====START GLOBAL VAR DECLARATION=====
 var rssCtrls = require('../controllers/rssControllers.js'),
-  apiRouter = require('express').Router(),
+  rssRouter = require('express').Router(),
   config = require('../config'),
-  db = require('../models'),
+  db = require('../models');
 // =====END GLOBAL VAR DECLARATION
 // =======================================
 
 
 
-apiRouter.route('/test')
-  .get(twCtrls.test)
+rssRouter.route('/test')
+  .get(function(req, res) {res.send('test')})
 
-module.exports = apiRouter
+rssRouter.route('/team/:teamName')
+  .get(rssCtrls.team)
+
+module.exports = rssRouter

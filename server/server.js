@@ -21,6 +21,7 @@ var express = require('express'),
   , authRoutes = require('./routes/authRoutes.js')
   , authCtrls = require('./controllers/authControllers.js')
   , meRoutes = require('./routes/meRoutes.js')
+  , rssRoutes = require('./routes/rssRoutes.js')
 
 // ===============================
 // Connect to DB on Digital Ocean
@@ -58,13 +59,14 @@ app.get('/', function (req, res) {
 
 // Authentication
 app.use('/api/authenticate', authRoutes)
-app.use(authCtrls.middleware)
+// app.use(authCtrls.middleware)
 
 // endpoints
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/me', meRoutes)
+app.use('/api/rss', rssRoutes)
 
 // Set the port to run
 app.listen(app.get('port'), function () {

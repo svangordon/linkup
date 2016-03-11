@@ -13,8 +13,8 @@ angular.module('linkupRoutes', ['ngRoute'])
       // route for about page
       .when('/about', {
         templateUrl : '/angular/views/pages/about.html'
-        , controller : 'aboutController'
-        , controllerAs : 'about'
+        // , controller : 'aboutController'
+        // , controllerAs : 'about'
       })
 
       // login route
@@ -26,10 +26,16 @@ angular.module('linkupRoutes', ['ngRoute'])
 
       // show all users
   		.when('/users', {
-  			templateUrl: 'angular/views/pages/users.html',
+  			templateUrl: '/angular/views/pages/users.html',
   			controller: 'userController',
   			controllerAs: 'user'
   		})
+
+      .when('/dash', {
+        templateUrl: '/angular/views/pages/dash/dash.html'
+      })
+
+      //
 
       $locationProvider.html5Mode(true)
   })

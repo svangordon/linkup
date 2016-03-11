@@ -1,0 +1,22 @@
+<div class="" ng-controller="dashController as vm">
+  <!-- <nav> -->
+    <div class="sub-nav">
+
+        <a ng-repeat="nav in vm.dashFrames" class="waves-effect waves-light btn" ng-bind="nav.name" ng-click="vm.setActive(nav.id)"></a>
+
+    </div>
+  <!-- </nav> -->
+
+  <h1>this is the dash template</h1>
+
+  <div class="dash-frames-container">
+    <div class="" ng-repeat="frame in vm.dashFrames" ng-show="vm.activeFrame === frame.id" ng-include="frame.href">
+
+    </div>
+  </div>
+
+  <!-- <div class=""  ng-include="'angular/views/pages/dash/rss.html'"></div>
+  <div class="" ng-include="'angular/views/pages/dash/schedule.html'"></div>
+  <div class="" ng-include="'angular/views/pages/dash/table.html'"></div> -->
+
+</div>

@@ -3,7 +3,9 @@ angular.module('linkupApp', [
   'authService',
   'userService',
   'mainCtrl',
-  'userCtrl'
+  'userCtrl',
+  'dashCtrl',
+  'dataService'
 
 
 ])

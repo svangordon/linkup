@@ -21,9 +21,9 @@ var db = require('../models.js')
 
 var request = require('request')
   , FeedParser = require('feedparser')
-  , Iconv = require('iconv').Iconv;
+  , Iconv = require('iconv-lite').Iconv;
 
-function fetch(feed) {
+function fetch(feed, res) {
   // Define our streams
   var req = request(feed, {timeout: 10000, pool: false});
   req.setMaxListeners(50);
@@ -42,14 +42,19 @@ function fetch(feed) {
     // And boom goes the dynamite
     res.pipe(feedparser);
   });
+  var out = [];
 
   feedparser.on('error', done);
-  feedparser.on('end', done);
+  feedparser.on('end', function() {
+    res.send(out)
+  });
   feedparser.on('readable', function() {
     var post;
     while (post = this.read()) {
-      console.log(JSON.stringify(post, ' ', 4));
+      // console.log(JSON.stringify(post, ' ', 4));
+      out.push(post)
     }
+    // res.send(out)
   });
 }
 
@@ -88,7 +93,7 @@ function done(err) {
     return process.exit(1);
   }
   // server.close();
-  process.exit();
+  // process.exit();
 }
 
 module.exports = fetch

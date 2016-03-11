@@ -65,7 +65,7 @@ angular.module('authService', [])
 
     // attach token to every request
     interceptorFactory.request = function(config) {
-      console.log('interceptor fired')
+      // console.log('interceptor fired')
       var token = AuthToken.getToken()
       if (token)
         config.headers['x-access-token'] = token

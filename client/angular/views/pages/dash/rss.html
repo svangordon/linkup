@@ -1,0 +1,16 @@
+<div ng-controller="rssController as vm">
+  This is the RSS page
+
+  <div class="card" ng-repeat="rss in vm.feed | limitTo : 10">
+    <a ng-href="{{rss.link}}" target="_blank">
+      <div class="card-image">
+        <img ng-src="{{rss.image.url}}" ng-style="{'height' : '150px', 'width':'150px'}" alt="" />
+        <span class="card-title" ng-bind="rss.title"></span>
+      </div>
+      <div class="card-content">
+          <p ng-bind="rss.description"></p>
+      </div>
+    </a>
+  </div>
+
+</div>

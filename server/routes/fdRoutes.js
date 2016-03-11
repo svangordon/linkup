@@ -1,26 +1,29 @@
 // =====START GLOBAL VAR DECLARATION=====
 var //ctrls = require('./controllers.js'),
   fdCtrls = require('../controllers/fdControllers.js'),
-  apiRouter = require('express').Router(),
+  fdRouter = require('express').Router(),
   config = require('../config'),
   db = require('../models')
 // =====END GLOBAL VAR DECLARATION
 // =======================================
-apiRouter.route('/test')
+fdRouter.route('/test')
   .get(fdCtrls.test)
 
 // League Routes
-apiRouter.route('/league/fixtures')
+fdRouter.route('/league/schedule')
   .get(fdCtrls.league.fixtures)
 
 // Team Routes : get schedule, get players...
-apiRouter.route('/team/:teamCode')
+fdRouter.route('/team/:teamCode')
   .get(fdCtrls.team.data)
 
-apiRouter.route('/team/:teamCode/fixtures')
+fdRouter.route('/team/schedule/:teamCode')
   .get(fdCtrls.team.fixtures)
 
-apiRouter.route('/team/:teamCode/players')
+fdRouter.route('/team/players/:teamCode')
     .get(fdCtrls.team.players)
 
-module.exports = apiRouter
+fdRouter.route('/table')
+  .get(fdCtrls.table.data)
+
+module.exports = fdRouter

@@ -61,8 +61,10 @@ module.exports = {
             url: urlStem + 'teams/' + teamCode(req.params.teamCode),
             headers: fdHeaders
           }
+          console.log(options.url)
           request(options, function (err, response, body) {
             if (err) console.error(err);
+            console.log(JSON.parse(body))
             options.url = JSON.parse(body)._links.fixtures.href;
             request(options, fdCallback.bind(null, res))
           })
@@ -78,8 +80,28 @@ module.exports = {
             request(options, fdCallback.bind(null, res))
           })
         }
+      },
+      // =======================
+      // End team controller
+      // =======================
+      // =======================
+      // Begin Table Controller
+      // =======================
+      table: {
+        data: function (req, res) {
+          var options = {
+            url: 'http://api.football-data.org/v1/soccerseasons/398/leagueTable',
+            headers: fdHeaders
+          }
+          request(options, function(err, response, body) {
+            if (err) console.error(err);
+            res.send(body)
+          })
+        }
       }
-
+      // =======================
+      // End Table Controller
+      // =======================
 }
 
 

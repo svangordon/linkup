@@ -1,0 +1,34 @@
+<div ng-controller="tableController as vm">
+  This is the table page
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Team</th>
+        <th>GP</th>
+        <th>W</th>
+        <th>D</th>
+        <th>L</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>GD</th>
+        <th>PTS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="team in vm.table.standing">
+        <td ng-bind="team.position"></td>
+        <td ng-bind="team.teamName"></td>
+        <td ng-bind="team.playedGames"></td>
+        <td ng-bind="team.wins"></td>
+        <td ng-bind="team.draws"></td>
+        <td ng-bind="team.losses"></td>
+        <td ng-bind="team.goals"></td>
+        <td ng-bind="team.goalsAgainst"></td>
+        <td ng-bind="team.goalsDifference"></td>
+        <td ng-bind="team.points"></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

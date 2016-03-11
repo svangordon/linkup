@@ -1,0 +1,15 @@
+<div ng-controller="scheduleController as vm">
+  This is the schedule page
+
+  <div class="card" ng-repeat="fixture in vm.schedule.fixtures | limitTo : 10">
+      <div class="card-content">
+          <p ng-bind="fixture.homeTeamName"></p>
+          <p ng-bind="fixture.result.goalsHomeTeam"></p>
+          <p> - </p>
+          <p ng-bind="fixture.result.goalsAwayTeam"></p>
+          <p ng-bind="fixture.awayTeamName"></p>
+      </div>
+
+  </div>
+
+</div>
