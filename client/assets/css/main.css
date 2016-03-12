@@ -1,3 +1,10 @@
+.rss-card {
+  display: block;
+  background-color: #fdfdfd;
+}
 .card-text {
+  display: inline-block;
+}
+.card-image {
   display: inline-block;
 }
