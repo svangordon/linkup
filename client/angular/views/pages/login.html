@@ -1,11 +1,15 @@
-<h1>Login</h1>
+<div ng-controller="mainController as login" class="container">
 
-<form class="" ng-submit="login.doLogin()">
-  <label>Username</label>
-  <input type="text" ng-model="login.loginData.username">
+  <h4>Login</h4>
 
-  <label>Password</label>
-  <input type="password" ng-model="login.loginData.password">
+  <form class="" ng-submit="login.doLogin()">
+    <label>Username</label>
+    <input type="text" ng-model="login.loginData.username">
 
-  <button type="submit" name="button">Login</button>
-</form>
+    <label>Password</label>
+    <input type="password" ng-model="login.loginData.password">
+
+    <button type="submit" name="button">Login</button>
+  </form>
+
+</div>

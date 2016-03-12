@@ -8,7 +8,7 @@ module.exports = {
     // find user
       db.User.findOne({
         username: req.body.username
-      }).select('name username password')
+      }).select('name username password settings')
       .exec(function(err, user) {
         if (err) throw err;
         // no user found

@@ -32,7 +32,15 @@ angular.module('linkupRoutes', ['ngRoute'])
   		})
 
       .when('/dash', {
-        templateUrl: '/angular/views/pages/dash/dash.html'
+        templateUrl: '/angular/views/pages/dash/dash.html',
+        controller: 'dashController',
+        controllerAs: 'vm'
+      })
+
+      .when('/signup', {
+        templateUrl: '/angular/views/pages/signup.html',
+        controller: 'userCreateController',
+        controllerAs: 'vm'
       })
 
       //

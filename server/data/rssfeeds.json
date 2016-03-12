@@ -1,3 +1,22 @@
 {
-  "afc" : "http://www.football.co.uk/teams/arsenal/rss.xml"
+  "afc" : "http://www.football.co.uk/teams/arsenal/rss.xml",
+  "mufc" : "http://www.football.co.uk/teams/manchester-united/rss.xml",
+  "thfc" : "http://www.football.co.uk/teams/tottenham-hotspur/rss.xml",
+  "afcb" : "http://www.football.co.uk/teams/afc-bournemouth/rss.xml",
+  "avfc" : "http://www.football.co.uk/teams/afc-bournemouth/rss.xml",
+  "efc" : "http://www.football.co.uk/teams/everton/rss.xml",
+  "wat" : "http://www.football.co.uk/teams/watford/rss.xml",
+  "lcfc" : "http://www.football.co.uk/teams/leicester-city/rss.xml",
+  "sun" : "http://www.football.co.uk/teams/sunderland/rss.xml",
+  "nufc" : "http://www.football.co.uk/teams/newcastle-united/rss.xml",
+  "cry" : "http://www.football.co.uk/teams/crystal-palace/rss.xml",
+  "cfc" : "http://www.football.co.uk/teams/chelsea/rss.xml",
+  "swa" : "http://www.football.co.uk/teams/swansea-city/rss.xml",
+  "ncfc" : "http://www.football.co.uk/teams/norwich-city/rss.xml",
+  "sfc" : "http://www.football.co.uk/teams/southampton/rss.xml",
+  "whu" : "http://www.football.co.uk/teams/west-ham-united/rss.xml",
+  "scfc" : "http://www.football.co.uk/teams/stoke-city/rss.xml",
+  "lfc" : "http://www.football.co.uk/teams/liverpool/rss.xml",
+  "wba" : "http://www.football.co.uk/teams/west-bromwich-albion/rss.xml",
+  "mcfc" : "http://www.football.co.uk/teams/manchester-city/rss.xml"
 }
