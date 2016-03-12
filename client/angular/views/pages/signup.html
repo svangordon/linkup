@@ -28,7 +28,7 @@
         <div class="input-field col s12">
           <select id="teamSelect" my-repeat-directive ng-model="vm.userData.teamPref">
             <option value="" disabled selected>Choose your team</option>
-            <option ng-repeat="team in vm.teams" ng-value="team.code" ng-bind="team.name"></option>
+            <option ng-repeat="team in vm.teams | orderBy : 'name'" data-icon="{{team.crestUrl}}" class="left circle" ng-value="team.code" ng-bind="team.name"></option>
           </select>
         </div>
       </div>
