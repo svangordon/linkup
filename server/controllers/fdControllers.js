@@ -80,6 +80,13 @@ module.exports = {
             request(options, fdCallback.bind(null, res))
           })
         }
+        , all: function(req, res) {
+          var options = {
+            url: 'http://api.football-data.org/v1/soccerseasons/398/teams',
+            headers: fdHeaders
+          }
+          request(options, fdCallback.bind(null, res))
+        }
       },
       // =======================
       // End team controller

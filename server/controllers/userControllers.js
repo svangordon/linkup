@@ -7,15 +7,19 @@ var db = require('../models'),
     create: function(req, res) {
       // new user instance
       var user = new db.User();
-      // set user info
-      user.name = req.body.name;
-      user.username = req.body.username;
-      user.password = req.body.password;
+      // programmatically set user info
+      for (i in req.body) {
+        user[i] = req.body[i];
+      }
+
+      // new users are always created w/ the role user
+      user.role = 'user'
+
       // save, err check
       user.save(function(err) {
         if (err) {
           if (err.code == 1100){
-            return res.json({success: false, message: 'A user with that username alread exists'})
+            return res.json({success: false, message: 'A user with that username already exists'})
           } else {
             return res.send(err)
           }

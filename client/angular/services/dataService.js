@@ -29,3 +29,13 @@ angular.module('dataService', [])
 
     return tableFactory
   })
+
+  .factory('Team', function ($http) {
+    var teamFactory = {}
+
+    teamFactory.all = function () {
+      return $http.get('/api/fd/teams')
+    }
+
+    return teamFactory
+  })

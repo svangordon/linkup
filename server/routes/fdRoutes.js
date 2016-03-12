@@ -21,7 +21,10 @@ fdRouter.route('/team/schedule/:teamCode')
   .get(fdCtrls.team.fixtures)
 
 fdRouter.route('/team/players/:teamCode')
-    .get(fdCtrls.team.players)
+  .get(fdCtrls.team.players)
+
+fdRouter.route('/teams')
+  .get(fdCtrls.team.all)
 
 fdRouter.route('/table')
   .get(fdCtrls.table.data)

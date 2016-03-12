@@ -1,0 +1,56 @@
+<div class="signup-template">
+  <div class="row">
+    <form class="col s12" ng-submit="vm.saveUser()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" ng-model="vm.userData.username" class="validate">
+          <label for="username">User Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" ng-model="vm.userData.password" class="validate">
+          <label for="password">Password</label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" type="text" ng-model="vm.userData.name" class="validate">
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" ng-model="vm.userData.email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <!-- <select id="teamSelect">
+            <option value="" disabled selected>Choose your team</option>
+            <option>
+              option one
+            </option>
+            <option ng-repeat="team in vm.teams" ng-value="team.code" ng-bind="team.name"></option>
+          </select> -->
+          <!-- TODO: Obviously this is temporary hack; can't get the m9e dropdown to reinitialize -->
+          <label>Enter Team Code</label>
+          <input type="text" name="team" ng-model="vm.userData.teamPref"/>
+
+
+
+        </div>
+        <ul>
+          <li ng-repeat="team in vm.teams"> {{ team.name }} - {{ team.code }} </li>
+        </ul>
+      </div>
+      <br>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="vm.log(vm.userData)">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</div>

@@ -40,13 +40,27 @@ angular.module('userCtrl', ['userService'])
 })
 
 // controller applied to user creation page
-.controller('userCreateController', function(User) {
-
+.controller('userCreateController', function(User, Team, $location) {
+	console.log('user create controller initialized')
 	var vm = this;
 
 	// variable to hide/show elements of the view
 	// differentiates between create or edit pages
 	vm.type = 'create';
+
+	vm.userData = {  }
+
+	vm.log = function (val) {console.log('log:',val);}
+
+	Team.all()
+		.then(function(resp) {
+			vm.teams = resp.data.teams
+			console.log(vm.teams)
+			$(document).ready(function() {
+    $('select').material_select();
+});
+	$('select').material_select();
+		})
 
 	// function to create a user
 	vm.saveUser = function() {
@@ -57,8 +71,10 @@ angular.module('userCtrl', ['userService'])
 		User.create(vm.userData)
 			.success(function(data) {
 				vm.processing = false;
-				vm.userData = {};
-				vm.message = data.message;
+				vm.userData = {  }
+
+				$location.path('/dash')
+
 			});
 
 	};
@@ -94,8 +110,6 @@ angular.module('userCtrl', ['userService'])
 				// clear the form
 				vm.userData = {};
 
-				// bind the message from our API to vm.message
-				vm.message = data.message;
 			});
 	};
 
