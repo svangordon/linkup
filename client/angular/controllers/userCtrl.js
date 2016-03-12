@@ -41,7 +41,6 @@ angular.module('userCtrl', ['userService'])
 
 // controller applied to user creation page
 .controller('userCreateController', function(User, Team, $location) {
-	console.log('user create controller initialized')
 	var vm = this;
 
 	// variable to hide/show elements of the view
@@ -55,7 +54,7 @@ angular.module('userCtrl', ['userService'])
 	Team.all()
 		.then(function(resp) {
 			vm.teams = resp.data.teams
-			console.log(vm.teams)
+			// console.log(vm.teams)
 			$(document).ready(function() {
     $('select').material_select();
 });

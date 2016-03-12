@@ -1,6 +1,6 @@
-angular.module('userService', [])
+angular.module('userService', ['authService'])
 
-  .factory('User', function($http){
+  .factory('User', function($http, AuthToken){
     var userFactory = {}
 
     // get single user
@@ -15,7 +15,6 @@ angular.module('userService', [])
 
     // create user
     userFactory.create = function (userData) {
-      console.log('userfac ud', userData);
       return $http.post('/api/users', userData)
     }
 
@@ -27,6 +26,13 @@ angular.module('userService', [])
     // delete user
     userFactory.delete = function (id) {
       return $http.delete('/api/users/' + id)
+    }
+
+    userFactory.profile = function (id) {
+      if (AuthToken.getToken())
+        return $http.get('/api/me')
+      else
+        return $q.reject({message: 'User has no token.'})
     }
 
     return userFactory

@@ -31,6 +31,7 @@ angular.module('authService', [])
 
     // get user info
     authFactory.getUser = function () {
+      // console.log('getuser fired')
       if (AuthToken.getToken())
         return $http.get('/api/me')
       else

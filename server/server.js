@@ -59,12 +59,12 @@ app.get('/', function (req, res) {
 
 // Authentication
 app.use('/api/authenticate', authRoutes)
-// app.use(authCtrls.middleware)
-
+// TODO: I moved the middleware below all the routes because it was authenticating the create users routes, should fix that and move back
 // endpoints
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
 app.use('/api/users', userRoutes)
+app.use(authCtrls.middleware)
 app.use('/api/me', meRoutes)
 app.use('/api/rss', rssRoutes)
 

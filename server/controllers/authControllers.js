@@ -22,10 +22,12 @@ module.exports = {
           } else {
             // create token
             console.log('pword match');
-            var token = jwt.sign({
-              name: user.name,
-              username: user.username
-            }, config.JWT_SECRET, {
+            var token = {};
+            for (i in user) {
+              token[i] = user[i]
+            }
+            console.log('=======user token========')
+            token = jwt.sign(token, config.JWT_SECRET, {
               expiresIn: 86400
             })
 
@@ -41,7 +43,7 @@ module.exports = {
   }
   , middleware: function (req, res, next) {
       console.log('middleware fired');
-      console.log(req.body)
+      console.log(req.params.token)
       // check for token
       var token = req.body.token || req.params.token || req.headers['x-access-token'];
       // decode token

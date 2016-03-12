@@ -4,13 +4,16 @@ var db = require('../models'),
   request = require('request'),
   moment = require('moment'),
   feedUrls = require('../data/rssfeeds.json'),
-  ballboy = require('../services/ballboy.js');
+  fetchRss = require('../services/ballboy.js')
+  util = require('util')
+  ;
 
 module.exports = {
   team : function (req, res) {
+    console.log('rssControllers req ========== ')
+    console.log(req.params);
     var feed = feedUrls[req.params.teamName];
-    var out = ballboy(feed, res);
-    // console.log(feed)
-    // res.send(out)
+    // remember, ballboy contains the res.send (not for any good reason)
+    fetchRss(feed, res);
   }
 }

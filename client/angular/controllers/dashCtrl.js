@@ -1,6 +1,6 @@
-angular.module('dashCtrl', ['dataService'])
+angular.module('dashCtrl', ['dataService','authService','userService'])
 
-  .controller('dashController', function () {
+  .controller('dashController', function (Auth, User) {
     var vm = this;
     vm.dashFrames = [
       {
@@ -19,39 +19,58 @@ angular.module('dashCtrl', ['dataService'])
         href: 'angular/views/pages/dash/table.html'
       }
     ]
-      
+
+    User.profile()
+      .then(function(resp) {
+        vm.teamPref = resp.data
+      })
+
     vm.activeFrame = 'rss';
     vm.setActive = function (frame) {
       vm.activeFrame = frame
     }
   })
 
-  .controller('rssController', function (Rss) {
+  .controller('rssController', function (Rss, User) {
     var vm = this;
 
-    Rss.teamFeed('afc')
+    // TODO: I can't find a way to do this in the dash crtl and pass it,
+    //     so i'm doing it in each controller :/
+    User.profile()
       .then(function(resp) {
-        console.log('teamfeed resp', resp.data)
-        vm.feed = resp.data
-      })
+        vm.teamPref = resp.data.teamPref
+        Rss.teamFeed(vm.teamPref)
+          .then(function(resp) {
+            // console.log('teamfeed resp', resp.data)
+            vm.feed = resp.data
+          })
+    })
   })
 
-  .controller('scheduleController', function (Schedule) {
+  .controller('scheduleController', function (Schedule, User) {
     var vm = this;
-
-    Schedule.team('afc')
+    User.profile()
       .then(function(resp) {
-        console.log('team sched', resp.data)
-        vm.schedule = resp.data
-      })
+        vm.teamPref = resp.data.teamPref
+        Schedule.team(vm.teamPref)
+        .then(function(resp) {
+          // console.log('team sched', resp.data)
+          vm.schedule = resp.data
+        })
+    })
+
   })
 
-  .controller('tableController', function (Table) {
+  .controller('tableController', function (Table, User) {
     var vm = this
-
-    Table.data()
+    User.profile()
       .then(function(resp) {
-        console.log('league table', resp.data)
-        vm.table = resp.data
-      })
+        vm.teamPref = resp.data.teamPref
+        Table.data()
+        .then(function(resp) {
+          // console.log('league table', resp.data)
+          vm.table = resp.data
+        })
+    })
+
   })

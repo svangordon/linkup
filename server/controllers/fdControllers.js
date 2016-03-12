@@ -57,14 +57,13 @@ module.exports = {
         }
         , fixtures: function (req, res) {
           // console.log('req.params', req.params)
+          console.log('fd team fixtures', req.params);
           var options = {
             url: urlStem + 'teams/' + teamCode(req.params.teamCode),
             headers: fdHeaders
           }
-          console.log(options.url)
           request(options, function (err, response, body) {
             if (err) console.error(err);
-            console.log(JSON.parse(body))
             options.url = JSON.parse(body)._links.fixtures.href;
             request(options, fdCallback.bind(null, res))
           })
