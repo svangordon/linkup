@@ -42,7 +42,6 @@ module.exports = {
       })
   }
   , middleware: function (req, res, next) {
-      console.log('middleware fired');
       console.log(req.params.token)
       // check for token
       var token = req.body.token || req.params.token || req.headers['x-access-token'];

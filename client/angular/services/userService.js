@@ -1,6 +1,6 @@
 angular.module('userService', ['authService'])
 
-  .factory('User', function($http, AuthToken){
+  .factory('User', function($http, AuthToken, $q){
     var userFactory = {}
 
     // get single user
@@ -28,7 +28,7 @@ angular.module('userService', ['authService'])
       return $http.delete('/api/users/' + id)
     }
 
-    userFactory.profile = function (id) {
+    userFactory.profile = function () {
       if (AuthToken.getToken())
         return $http.get('/api/me')
       else

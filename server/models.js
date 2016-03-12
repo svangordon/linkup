@@ -54,6 +54,7 @@ var mongoose = require('mongoose'),
   })
   userSchema.methods.comparePassword = function (password) {
     var user = this;
+    // console.log('models.js user compare password', password, user.password);
     return bcrypt.compareSync(password, user.password)
   }
 

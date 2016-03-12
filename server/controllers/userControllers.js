@@ -8,6 +8,7 @@ var db = require('../models'),
       // new user instance
       var user = new db.User();
       // programmatically set user info
+      // console.log('creating new user', req.body);
       for (i in req.body) {
         user[i] = req.body[i];
       }
@@ -24,7 +25,7 @@ var db = require('../models'),
             return res.send(err)
           }
         }
-        res.json({message: 'User created'})
+        res.json(user)
       })
     }
     , all: function (req, res) {

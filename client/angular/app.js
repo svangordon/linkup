@@ -5,7 +5,8 @@ angular.module('linkupApp', [
   'mainCtrl',
   'userCtrl',
   'dashCtrl',
-  'dataService'
+  'dataService',
+  'signupDirectives'
 
 
 ])

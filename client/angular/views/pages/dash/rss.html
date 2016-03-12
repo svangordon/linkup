@@ -4,10 +4,10 @@
   <div class="card dash-card rss-card" ng-repeat="rss in vm.feed | limitTo : 10">
     <a ng-href="{{rss.link}}" target="_blank">
       <div class="card-image">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=14&txt=150%C3%97150&w=150&h=150" ng-style="{'height' : '150px', 'width':'150px'}" alt="" />
+        <img ng-src="{{rss.image.url}}" ng-style="{'height' : '150px', 'width':'150px'}" alt="" />
       </div>
       <div class="rss-card card-text right">
-          <span class="card-title">Lorem Ipsum</span>
+          <span class="card-title" ng-bind="rss.title"></span>
           <p>Lorem Ipsum had a great game in the Sid no quet dolore cup yesterdatum</p>
           <p>From a source</p>
       </div>

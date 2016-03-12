@@ -44,6 +44,6 @@ angular.module('linkupRoutes', ['ngRoute'])
       })
 
       //
-
-      $locationProvider.html5Mode(true)
+    var devMode = false;
+    if (!devMode) $locationProvider.html5Mode(true)
   })

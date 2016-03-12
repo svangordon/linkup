@@ -40,7 +40,7 @@ angular.module('userCtrl', ['userService'])
 })
 
 // controller applied to user creation page
-.controller('userCreateController', function(User, Team, $location) {
+.controller('userCreateController', function(User, Team, $location, $timeout, Auth, AuthToken, $window) {
 	var vm = this;
 
 	// variable to hide/show elements of the view
@@ -54,27 +54,40 @@ angular.module('userCtrl', ['userService'])
 	Team.all()
 		.then(function(resp) {
 			vm.teams = resp.data.teams
-			// console.log(vm.teams)
-			$(document).ready(function() {
-    $('select').material_select();
-});
-	$('select').material_select();
+
+			$timeout(function() {
+        $('select').material_select()
+      }, 0)
+
 		})
 
 	// function to create a user
 	vm.saveUser = function() {
 		vm.processing = true;
 		vm.message = '';
-
+		var password = vm.userData.password
 		// use the create function in the userService
 		User.create(vm.userData)
-			.success(function(data) {
+			.then(function(resp) {
 				vm.processing = false;
 				vm.userData = {  }
+				return resp.data
+			})
+			.then(function (user) {
+				Auth.login(user.username, password)
+					.then(function(data) {
+						vm.processing = false;
 
-				$location.path('/dash')
+						// if a user successfully logs in, redirect to users page
+						if (data.success){
+							$location.path('/dash');
+						}
 
-			});
+					});
+
+			})
+
+
 
 	};
 
