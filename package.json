@@ -22,7 +22,6 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "feedparser": "^1.1.4",
-    "iconv": "^2.1.11",
     "iconv-lite": "^0.4.13",
     "jsonwebtoken": "^5.7.0",
     "moment": "^2.12.0",

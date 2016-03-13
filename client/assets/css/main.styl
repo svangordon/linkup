@@ -1,4 +1,4 @@
-card-color = #FDFDFD
+card-color = #f4f7b0
 
   html {
     font-family: helvetica;
@@ -24,7 +24,9 @@ card-color = #FDFDFD
   display block
   margin 10px//0 10px 10px 10px 10px
   background-color: card-color
-  padding 10px
+  //padding 10px
+  &-content
+    width 100%
 
 // RSS Card styles -- should be easily adapted to other stuff
 
@@ -52,28 +54,7 @@ card-color = #FDFDFD
 
   // Schedule styles
 
-.schedule-card-content
-  display flex
-  justify-content: space-around;
-.schedule-half
-  display inline-block
-  position relative
-  background-color: peachpuff
-.schedule-divider
-  display inline-block
-  background-color burlywood
-.schedule-team, .schedule-game
-  display: inline-block;
-.schedule-time
-  display flex;
-  justify-content: center;
-.schedule-game
-  .score
-    font-size: x-large
-.schedule-team
-  display flex
-  width 160px
-  position: absoltue
+
 
 // and now we're trying somethign different
 schedIconHeight = 50px
@@ -82,3 +63,5 @@ schedIconWidth = 50px
   .logo
     max-height schedIconHeight
     max-width schedIconWidth
+  .score
+    font-size: larger
