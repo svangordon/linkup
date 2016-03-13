@@ -24,13 +24,6 @@ angular.module('linkupRoutes', ['ngRoute'])
         , controllerAs : 'login'
       })
 
-      // show all users
-  		.when('/users', {
-  			templateUrl: '/angular/views/pages/users.html',
-  			controller: 'userController',
-  			controllerAs: 'user'
-  		})
-
       .when('/dash', {
         templateUrl: '/angular/views/pages/dash/dash.html',
         controller: 'dashController',
