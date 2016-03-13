@@ -1,7 +1,7 @@
 <div ng-controller="rssController as vm">
   This is the RSS page
 
-  <div class="rss-card" ng-repeat="rss in vm.feed | limitTo : 10">
+  <div class="rss-card luCard" ng-repeat="rss in vm.feed | limitTo : 10">
     <!-- <a ng-href="{{rss.link}}" target="_blank"> -->
       <div class="rss-card-image-container ">
         <img class="rss-card-image" ng-src="{{rss.image.url}}" alt="" />
@@ -9,7 +9,7 @@
       <div class="rss-card-text">
           <h5 class="rss-card-text-title" ng-bind="rss.title"></h5
             >
-          <p class="rss-card-text-body">Lorem Ipsum had a great game in the Sid no quet dolore cup yesterdatum</p>
+          <p class="rss-card-text-body" ng-bind="rss.description"></p>
           <p class="rss-card-text-source">From a source</p>
       </div>
     <!-- </a> -->
