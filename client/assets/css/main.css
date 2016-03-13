@@ -19,14 +19,23 @@ main {
 .luCard-content {
   width: 100%;
 }
+.dash-frame {
+  overflow: hidden;
+  width: 280px;
+  max-height: 300px;
+}
+.dash-frame .scroll-container {
+  overflow: auto;
+  height: 300px;
+  margin: 15px -300px 15px 15px;
+  padding-right: 300px;
+}
 .rss-card-image-container {
   height: auto;
-  display: inline-block;
-  position: absolute;
 }
 .rss-card-image {
-  display: inline-block;
   margin: 0 10px 10px 10px 10px;
+  width: 100%;
   max-height: 150px;
   max-width: 150px;
 }
@@ -42,6 +51,12 @@ main {
 }
 .schedule-card .score {
   font-size: larger;
+}
+.league-table {
+  position: relative;
+}
+.league-table thead {
+  display: block;
 }
 .league-table .crest {
   width: 20px;

@@ -28,6 +28,17 @@ card-color = #f4f7b0
   &-content
     width 100%
 
+// styling for the dash boxes
+.dash-frame
+  overflow: hidden;
+  width: 280px
+  max-height: 300px
+  .scroll-container
+    overflow: auto;
+    height 300px
+    margin: 15px -300px 15px 15px
+    padding-right: 300px
+
 // RSS Card styles -- should be easily adapted to other stuff
 
   // variables
@@ -37,13 +48,14 @@ card-color = #f4f7b0
 .rss-card
   &-image-container
     height auto
-    display inline-block
-    position absolute
+    // display inline-block
+    // position absolute
     // width 50
   &-image
-    display: inline-block;
+    // display: inline-block;
     // position absolute
     margin 0 10px 10px 10px 10px
+    width 100%
     max-height: rssIconHeight
     max-width: rssIconWidth
   &-text
@@ -53,10 +65,6 @@ card-color = #f4f7b0
     height auto
 
   // Schedule styles
-
-
-
-// and now we're trying somethign different
 schedIconHeight = 50px
 schedIconWidth = 50px
 .schedule-card
@@ -67,6 +75,10 @@ schedIconWidth = 50px
     font-size: larger
 
 .league-table
+  position relative
+  thead
+    display block
+    // position: fixed;
   .crest
     width 20px
     height 20px

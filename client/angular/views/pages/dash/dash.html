@@ -7,12 +7,12 @@
     </div>
   <!-- </nav> -->
 
-  <h1>this is the dash template</h1>
+  <h5>dash template</h5>
 
   <div class="dash-frames-container">
-    <div class="" ng-repeat="frame in vm.dashFrames" ng-show="vm.activeFrame === frame.id" ng-include="frame.href">
+    <ng-include class="" ng-repeat="frame in vm.dashFrames" ng-show="vm.activeFrame === frame.id" src="frame.href">
 
-    </div>
+    </ng-include>
   </div>
 
   <!-- <div class=""  ng-include="'angular/views/pages/dash/rss.html'"></div>

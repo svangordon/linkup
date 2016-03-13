@@ -2,6 +2,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   .controller('dashController', function (Auth, User) {
     var vm = this;
+
     vm.dashFrames = [
       {
         id: 'rss',
@@ -84,12 +85,12 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       })
       .then(function(resp){
         vm.userTeam = resp.data
-        console.log('user team',vm.userTeam)
+        // console.log('user team',vm.userTeam)
       })
 
     Table.data()
     .then(function(resp) {
-      console.log('league table', resp.data)
+      // console.log('league table', resp.data)
       vm.table = resp.data
     })
 

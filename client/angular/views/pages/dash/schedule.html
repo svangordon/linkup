@@ -1,37 +1,27 @@
-<div ng-controller="scheduleController as vm">
-  This is the schedule page
+<div class="dash-frame" ng-controller="scheduleController as vm">
+  <div class="scroll-container">
+    <div class="schedule-card luCard" ng-repeat="fixture in vm.schedule.fixtures | limitTo : 50">
+        <div class="luCard-content row">
 
-  <div class="schedule-card luCard" ng-repeat="fixture in vm.schedule.fixtures | limitTo : 50">
-      <div class="luCard-content row">
-
-          <div class="col s6">
-            <p ng-bind="fixture.homeTeamName | nameTrim"></p>
-          </div>
-          <div class="col s6 right-align">
-            <p ng-bind="fixture.awayTeamName | nameTrim"></p>
-          </div>
-          <div class="col s3 logo-box">
-            <img class="logo" ng-src="{{vm.logos[fixture.homeTeamName]}}" alt="" />
-          </div>
-          <div class="col s3 score">
-            <p ng-bind="fixture.result.goalsHomeTeam"></p>
-          </div>
-          <div class="col s3 score">
-            <p class="right-align" ng-bind="fixture.result.goalsAwayTeam"></p>
-          </div>
-          <div class="col s3 logo-box">
-            <img class="logo right" ng-src="{{vm.logos[fixture.awayTeamName]}}" alt="" />
-          </div>
-      </div>
+            <div class="col s6">
+              <p ng-bind="fixture.homeTeamName | nameTrim"></p>
+            </div>
+            <div class="col s6 right-align">
+              <p ng-bind="fixture.awayTeamName | nameTrim"></p>
+            </div>
+            <div class="col s3 logo-box">
+              <img class="logo" ng-src="{{vm.logos[fixture.homeTeamName]}}" alt="" />
+            </div>
+            <div class="col s3 score">
+              <p ng-bind="fixture.result.goalsHomeTeam"></p>
+            </div>
+            <div class="col s3 score">
+              <p class="right-align" ng-bind="fixture.result.goalsAwayTeam"></p>
+            </div>
+            <div class="col s3 logo-box">
+              <img class="logo right" ng-src="{{vm.logos[fixture.awayTeamName]}}" alt="" />
+            </div>
+        </div>
+    </div>
   </div>
-              <!-- <p class="score" ng-bind="fixture.result.goalsHomeTeam"></p>
-
-          <div class="schedule-divider"> - </div>
-          <p class="score"   ng-bind="fixture.result.goalsAwayTeam"></p>
-            <div class="schedule-team away">
-            </div> -->
-
-
-      <!-- <div class="schedule-time">
-        <p ng-bind="fixture.date"></p>
-      </div> -->
+</div>
