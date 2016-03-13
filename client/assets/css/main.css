@@ -21,7 +21,8 @@ main {
 }
 .dash-frame {
   overflow: hidden;
-  width: 280px;
+  width: 100%;
+  max-width: 700px;
   max-height: 300px;
 }
 .dash-frame .scroll-container {
@@ -54,9 +55,6 @@ main {
 }
 .league-table {
   position: relative;
-}
-.league-table thead {
-  display: block;
 }
 .league-table .crest {
   width: 20px;

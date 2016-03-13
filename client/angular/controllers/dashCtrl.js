@@ -6,7 +6,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     vm.dashFrames = [
       {
         id: 'rss',
-        name: 'RSS',
+        name: 'News',
         href: 'angular/views/pages/dash/rss.html'
       },
       {
@@ -16,10 +16,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       },
       {
         id: 'table',
-        name: 'League Table',
+        name: 'Table',
         href: 'angular/views/pages/dash/table.html'
       }
     ]
+
 
     User.profile()
       .then(function(resp) {
