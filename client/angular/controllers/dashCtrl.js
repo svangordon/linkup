@@ -67,18 +67,30 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   })
 
-  .controller('tableController', function (Table, User) {
+  .controller('tableController', function (Table, User, Team) {
     var vm = this
-
+    vm.userTeam = {}
+    vm.activeTeam = function (teamName) {
+      return teamName === vm.userTeam.name
+    }
 
     User.profile()
       .then(function(resp) {
         vm.teamPref = resp.data.teamPref
-        Table.data()
-        .then(function(resp) {
-          // console.log('league table', resp.data)
-          vm.table = resp.data
-        })
+        return resp.data.teamPref
+    })
+      .then(function(resp) {
+        return Team.data(resp)
+      })
+      .then(function(resp){
+        vm.userTeam = resp.data
+        console.log('user team',vm.userTeam)
+      })
+
+    Table.data()
+    .then(function(resp) {
+      console.log('league table', resp.data)
+      vm.table = resp.data
     })
 
   })

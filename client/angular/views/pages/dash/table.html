@@ -1,31 +1,34 @@
 <div ng-controller="tableController as vm">
-  This is the table page
-  <table class="striped">
+  <div class="hide-on-small-only">This is the table page</div>
+  <table class="striped league-table">
     <thead>
       <tr>
         <th>#</th>
         <th>Team</th>
         <th>GP</th>
-        <th>W</th>
-        <th>D</th>
-        <th>L</th>
-        <th>GF</th>
-        <th>GA</th>
-        <th>GD</th>
+        <th class="hide-on-small-only">W</th>
+        <th class="hide-on-small-only">D</th>
+        <th class="hide-on-small-only">L</th>
+        <th class="hide-on-small-only">GF</th>
+        <th class="hide-on-small-only">GA</th>
+        <th class="hide-on-small-only">GD</th>
         <th>PTS</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="team in vm.table.standing">
+      <tr ng-repeat="team in vm.table.standing" ng-class="{'active' : vm.activeTeam(team.teamName)}">
         <td ng-bind="team.position"></td>
-        <td ng-bind="team.teamName"></td>
+        <td>
+          <img class="crest" ng-src="{{team.crestURI}}" alt="" />
+          {{ team.teamName | nameTrim }}
+        </td>
         <td ng-bind="team.playedGames"></td>
-        <td ng-bind="team.wins"></td>
-        <td ng-bind="team.draws"></td>
-        <td ng-bind="team.losses"></td>
-        <td ng-bind="team.goals"></td>
-        <td ng-bind="team.goalsAgainst"></td>
-        <td ng-bind="team.goalsDifference"></td>
+        <td class="hide-on-small-only" ng-bind="team.wins"></td>
+        <td class="hide-on-small-only" ng-bind="team.draws"></td>
+        <td class="hide-on-small-only" ng-bind="team.losses"></td>
+        <td class="hide-on-small-only" ng-bind="team.goals"></td>
+        <td class="hide-on-small-only" ng-bind="team.goalsAgainst"></td>
+        <td class="hide-on-small-only" ng-bind="team.goalsDifference"></td>
         <td ng-bind="team.points"></td>
       </tr>
     </tbody>

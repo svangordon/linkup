@@ -43,3 +43,10 @@ main {
 .schedule-card .score {
   font-size: larger;
 }
+.league-table .crest {
+  width: 20px;
+  height: 20px;
+}
+.league-table .active {
+  background-color: #f00;
+}
