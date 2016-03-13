@@ -86,6 +86,21 @@ module.exports = {
           }
           request(options, fdCallback.bind(null, res))
         }
+        , logos: function (req, res) {
+          var options = {
+            url: 'http://api.football-data.org/v1/soccerseasons/398/teams',
+            headers: fdHeaders
+          }
+          request(options, function(err, response, body) {
+            if (err) console.error(error);
+            var out = {}
+            body = JSON.parse(body)
+            console.log(body);
+            body.teams.forEach(function(cur) { out[cur.name] = cur.crestUrl })
+            console.log(out)
+            res.send(out)
+          })
+        }
       },
       // =======================
       // End team controller

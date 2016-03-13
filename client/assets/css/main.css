@@ -63,3 +63,7 @@ main {
   width: 160px;
   position: absoltue;
 }
+.schedule-card .logo {
+  max-height: 50px;
+  max-width: 50px;
+}

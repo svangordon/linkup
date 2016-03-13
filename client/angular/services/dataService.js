@@ -37,5 +37,9 @@ angular.module('dataService', [])
       return $http.get('/api/fd/teams')
     }
 
+    teamFactory.logos = function () {
+      return $http.get('/api/fd/teams/logos')
+    }
+
     return teamFactory
   })

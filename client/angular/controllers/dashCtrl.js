@@ -47,7 +47,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     })
   })
 
-  .controller('scheduleController', function (Schedule, User) {
+  .controller('scheduleController', function (Schedule, User, Team) {
     var vm = this;
     User.profile()
       .then(function(resp) {
@@ -56,13 +56,21 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         .then(function(resp) {
           // console.log('team sched', resp.data)
           vm.schedule = resp.data
+          // console.log(vm.schedule)
         })
+    })
+    Team.logos()
+    .then(function(resp) {
+      vm.logos = resp.data
+      // console.log(vm.logos)
     })
 
   })
 
   .controller('tableController', function (Table, User) {
     var vm = this
+
+
     User.profile()
       .then(function(resp) {
         vm.teamPref = resp.data.teamPref

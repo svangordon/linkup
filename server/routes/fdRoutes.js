@@ -26,6 +26,9 @@ fdRouter.route('/team/players/:teamCode')
 fdRouter.route('/teams')
   .get(fdCtrls.team.all)
 
+fdRouter.route('/teams/logos')
+  .get(fdCtrls.team.logos)
+
 fdRouter.route('/table')
   .get(fdCtrls.table.data)
 

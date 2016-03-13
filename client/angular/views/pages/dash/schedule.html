@@ -3,29 +3,34 @@
 
   <div class="schedule-card luCard" ng-repeat="fixture in vm.schedule.fixtures | limitTo : 10">
       <div class="schedule-card-content">
-          <div class="schedule-half home">
-            <div class="schedule-team home">
-              <p ng-bind="fixture.homeTeamName"></p>
-            </div>
-            <div class="schedule-game home">
-              <p class="score" ng-bind="fixture.result.goalsHomeTeam"></p>
-            </div>
-
+        <div class="row">
+          <div class="col s6">
+            <p ng-bind="fixture.homeTeamName"></p>
+            <img class="logo" ng-src="{{vm.logos[fixture.homeTeamName]}}" alt="" />
           </div>
+          <div class="col s6">
+            <p ng-bind="fixture.awayTeamName"></p>
+            <img class="logo" ng-src="{{vm.logos[fixture.awayTeamName]}}" alt="" />
+          </div>
+          <div class="col s6">
+            <p ng-bind="fixture.result.goalsHomeTeam"></p>
+          </div>
+          <div class="col s6">
+            <p ng-bind="fixture.result.goalsAwayTeam"></p>
+          </div>
+        </div>
+              <!-- <p class="score" ng-bind="fixture.result.goalsHomeTeam"></p>
+
           <div class="schedule-divider"> - </div>
-          <div class="schedule-half away">
-            <div class="schedule-game away">
-              <p class="score"   ng-bind="fixture.result.goalsAwayTeam"></p>
-            </div>
+          <p class="score"   ng-bind="fixture.result.goalsAwayTeam"></p>
             <div class="schedule-team away">
-              <p ng-bind="fixture.awayTeamName"></p>
-            </div>
+            </div> -->
           </div>
       </div>
 
-      <div class="schedule-time">
+      <!-- <div class="schedule-time">
         <p ng-bind="fixture.date"></p>
-      </div>
+      </div> -->
   </div>
 
 </div>
