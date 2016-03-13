@@ -1,3 +1,7 @@
+html {
+  font-family: helvetica;
+  font-weight: 900;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -14,9 +18,9 @@ main {
   padding: 10px;
 }
 .rss-card-image-container {
-  height: 100%;
+  height: auto;
   display: inline-block;
-  position: relative;
+  position: absolute;
 }
 .rss-card-image {
   display: inline-block;
@@ -25,6 +29,8 @@ main {
   max-width: 150px;
 }
 .rss-card-text {
+  margin-left: 115px;
   display: inline-block;
   width: 60%;
+  height: auto;
 }

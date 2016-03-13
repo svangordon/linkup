@@ -1,5 +1,9 @@
 card-color = #FDFDFD
 
+  html {
+    font-family: helvetica;
+    font-weight: 900;
+  }
 
   body {
     display: flex;
@@ -26,9 +30,9 @@ card-color = #FDFDFD
   box-shadow: cardShadow
   padding 10px
   &-image-container
-    height 100%
+    height auto
     display inline-block
-    position relative
+    position absolute
     // width 50
   &-image
     display: inline-block;
@@ -37,5 +41,7 @@ card-color = #FDFDFD
     max-height: rssIconHeight
     max-width: rssIconWidth
   &-text
+    margin-left 115px
     display inline-block
     width: 60%
+    height auto
