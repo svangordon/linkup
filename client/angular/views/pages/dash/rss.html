@@ -1,17 +1,18 @@
 <div ng-controller="rssController as vm">
   This is the RSS page
 
-  <div class="card dash-card rss-card" ng-repeat="rss in vm.feed | limitTo : 10">
-    <a ng-href="{{rss.link}}" target="_blank">
-      <div class="card-image">
-        <img ng-src="{{rss.image.url}}" ng-style="{'height' : '150px', 'width':'150px'}" alt="" />
+  <div class="rss-card" ng-repeat="rss in vm.feed | limitTo : 10">
+    <!-- <a ng-href="{{rss.link}}" target="_blank"> -->
+      <div class="rss-card-image-container ">
+        <img class="rss-card-image" ng-src="{{rss.image.url}}" alt="" />
       </div>
-      <div class="rss-card card-text right">
-          <span class="card-title" ng-bind="rss.title"></span>
-          <p>Lorem Ipsum had a great game in the Sid no quet dolore cup yesterdatum</p>
-          <p>From a source</p>
+      <div class="rss-card-text">
+          <h5 class="rss-card-text-title" ng-bind="rss.title"></h5
+            >
+          <p class="rss-card-text-body">Lorem Ipsum had a great game in the Sid no quet dolore cup yesterdatum</p>
+          <p class="rss-card-text-source">From a source</p>
       </div>
-    </a>
+    <!-- </a> -->
   </div>
 
 </div>

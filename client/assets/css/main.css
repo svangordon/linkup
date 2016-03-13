@@ -1,10 +1,30 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
 .rss-card {
   display: block;
+  margin: 10px;
   background-color: #fdfdfd;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  padding: 10px;
 }
-.card-text {
+.rss-card-image-container {
+  height: 100%;
   display: inline-block;
+  position: relative;
 }
-.card-image {
+.rss-card-image {
   display: inline-block;
+  margin: 0 10px 10px 10px 10px;
+  max-height: 150px;
+  max-width: 150px;
+}
+.rss-card-text {
+  display: inline-block;
+  width: 60%;
 }

@@ -1,16 +1,41 @@
 card-color = #FDFDFD
 
 
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
+  main {
+    flex: 1 0 auto;
+  }
+
+
+// RSS Card styles -- should be easily adapted to other stuff
+
+  // variables
+  rssIconHeight = 150px
+  rssIconWidth = 150px
+  cardShadow = 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
 .rss-card
   display block
+  margin 10px//0 10px 10px 10px 10px
   background-color: card-color
-
-.card-text
-  display: inline-block;
-  // background-color: blue
-
-.card-image
-  // background-color: red
-  display: inline-block;
+  box-shadow: cardShadow
+  padding 10px
+  &-image-container
+    height 100%
+    display inline-block
+    position relative
+    // width 50
+  &-image
+    display: inline-block;
+    // position absolute
+    margin 0 10px 10px 10px 10px
+    max-height: rssIconHeight
+    max-width: rssIconWidth
+  &-text
+    display inline-block
+    width: 60%
