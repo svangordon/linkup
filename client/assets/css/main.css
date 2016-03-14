@@ -10,11 +10,20 @@ body {
 main {
   flex: 1 0 auto;
 }
+header nav {
+  background-color: #fff;
+}
+header nav div {
+  border-bottom: 2px solid #00d7f3;
+}
+header nav div a {
+  color: #00d7f3;
+}
 .luCard {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   display: block;
   margin: 10px;
-  background-color: #f4f7b0;
+  background-color: #f0ead6;
 }
 .luCard-content {
   width: 100%;
@@ -22,14 +31,24 @@ main {
 .dash-frame {
   overflow: hidden;
   width: 100%;
-  max-width: 700px;
-  max-height: 300px;
+  max-width: 1000px;
+  max-height: 500px;
+  margin: auto;
 }
 .dash-frame .scroll-container {
   overflow: auto;
-  height: 300px;
+  height: 70vh;
   margin: 15px -300px 15px 15px;
   padding-right: 300px;
+}
+.sub-nav .tabs {
+  background-color: #6fd6a5;
+}
+.sub-nav .tabs .indicator {
+  background-color: #f03;
+}
+.sub-nav .active {
+  background-color: #6fd6a5;
 }
 .rss-card-image-container {
   height: auto;

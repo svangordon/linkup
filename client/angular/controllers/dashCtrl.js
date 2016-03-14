@@ -5,7 +5,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
     vm.dashFrames = [
       {
-        id: 'rss',
+        id: 'news',
         name: 'News',
         href: 'angular/views/pages/dash/rss.html'
       },
@@ -27,7 +27,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         vm.teamPref = resp.data
       })
 
-    vm.activeFrame = 'rss';
+    vm.activeFrame = 'news';
     vm.setActive = function (frame) {
       vm.activeFrame = frame
     }

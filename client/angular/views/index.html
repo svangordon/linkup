@@ -43,9 +43,9 @@
   <body ng-controller="mainController as main">
     <!-- <div class="container"> -->
       <header>
-        <nav>
+        <nav class="blue-text">
           <div class="nav-wrapper">
-            <a href="/" class="brand-logo left">LinkUp</a>
+            <a href="#" ng-click="main.hideNav()" class="left">LinkUp</a>
             <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
             <!-- Non-mobile nav -->
             <ul id="" class="right hide-on-med-and-down">
@@ -53,16 +53,14 @@
               <li ng-if="main.loggedIn">Hello {{main.user.name}}</li>
               <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
               <li ><a href="/about">About</a></li>
-              <li><a href="/rss">rss</a></li>
               <li><a href="/dash">Dash</a></li>
             </ul>
             <!-- Mobile nav -->
-            <ul id="nav-mobile" class="side-nav">
+            <ul id="nav-mobile" class="side-nav" ng-click="main.hideNav()">
               <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
-              <li ng-if="main.loggedIn">Hello {{main.user.name}}</li>
+              <li ng-if="main.loggedIn" ng-click="vm.hideNav()">Hello {{main.user.name}}</li>
               <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
               <li ><a href="/about">About</a></li>
-              <li><a href="/rss">rss</a></li>
               <li><a href="/dash">Dash</a></li>
             </ul>
           </div>

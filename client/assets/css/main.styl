@@ -1,4 +1,31 @@
-card-color = #f4f7b0
+// Colors:
+
+card-color = eggshell
+
+header-color = white
+header-border = bright-blue
+header-text-color = bright-blue
+
+sub-nav-tab-color = dull-green
+active-sub-nav-color = chill-green
+tab-text-color = dull-green
+indicator-color = glo-red
+
+// card colors
+tan = #ccc3b4
+pinkish = #ffdeed
+eggshell =  #F0EAD6
+
+// greens
+green = #159d00
+chill-green = #6fd6a5
+dull-green = #ace1ca
+
+// blues
+bright-blue = #00d7f3
+
+// reds
+glo-red = #ff0033
 
   html {
     font-family: helvetica;
@@ -17,6 +44,13 @@ card-color = #f4f7b0
 
   cardShadow = 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
+header
+  nav
+    background-color: header-color
+    div
+      border-bottom: 2px solid header-border
+      a
+        color header-text-color
 
 // Global styles
 .luCard
@@ -32,13 +66,24 @@ card-color = #f4f7b0
 .dash-frame
   overflow: hidden;
   width: 100%
-  max-width 700px
-  max-height: 300px
+  max-width 1000px
+  max-height: 500px
+  margin auto
   .scroll-container
     overflow: auto;
-    height 300px
+    height 70vh
     margin: 15px -300px 15px 15px
     padding-right: 300px
+
+.sub-nav
+  // a
+  //   color: tab-text-color
+  .tabs
+    background-color: active-sub-nav-color
+    .indicator
+      background-color: indicator-color
+  .active
+    background-color: active-sub-nav-color
 
 // RSS Card styles -- should be easily adapted to other stuff
 

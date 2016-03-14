@@ -5,9 +5,17 @@ angular.module('mainCtrl', [])
 
 	var vm = this;
 
+	console.log('right place')
+	vm.hideNav = function () {
+      console.log('fired')
+      $('.button-collapse').sideNav('hide')
+    }
+
 	// get info if a person is logged in
 	vm.loggedIn = Auth.isLoggedIn();
-	console.log('is logged in', vm.loggedIn)
+	if ($location.path() === '/' && vm.loggedIn)
+		$location.path('/dash')
+
 	// check to see if a user is logged in on every request
 	$rootScope.$on('$routeChangeStart', function() {
 		vm.loggedIn = Auth.isLoggedIn();
@@ -32,7 +40,7 @@ angular.module('mainCtrl', [])
 
 				// if a user successfully logs in, redirect to users page
 				if (data.success)
-					$location.path('/users');
+					$location.path('/dash');
 				else
 					vm.error = data.message;
 
