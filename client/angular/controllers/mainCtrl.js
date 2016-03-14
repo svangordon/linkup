@@ -8,6 +8,11 @@ angular.module('mainCtrl', [])
 		console.log()
 		return $location.path() === '/' || $location.path() === ''
 	}
+	vm.atSignup = function () {
+		console.log('at signup fired')
+		return $location.path() === '/signup' //|| $location.path() === ''
+	}
+
 	console.log('right place')
 	vm.hideNav = function () {
       console.log('fired')

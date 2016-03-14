@@ -1,6 +1,10 @@
+<div class="row" style="height : 5vh;">
+
+</div>
+
 <div class="signup-template">
-  <div class="row" style="background-color: red">
-    <form class="col s8 offset-s2" style="background-color: blue" ng-submit="vm.saveUser()">
+  <div class="row">
+    <form class="col s10 offset-s1 l6 offset-l3 signup-form" ng-submit="vm.saveUser()">
       <div class="row">
         <div class="input-field col s12">
           <input id="username" type="text" ng-model="vm.userData.username" class="validate">
@@ -32,12 +36,16 @@
           </select>
         </div>
       </div>
-      <br>
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
+      <br>
     </form>
   </div>
 
+
+</div>
+
+<div class="row" style="height : 5vh;">
 
 </div>

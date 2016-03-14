@@ -2,6 +2,10 @@ html {
   font-family: helvetica;
   font-weight: 900;
 }
+p {
+  font-family: helvetica;
+  font-weight: 900;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -13,6 +17,9 @@ main {
 main.home {
   background-image: url("https://images.unsplash.com/photo-1430760814266-9c81759e5e55");
 }
+main.signup {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/West_Stand_Champions.jpg");
+}
 header nav {
   background-color: #fff;
 }
@@ -23,6 +30,9 @@ header nav div a {
   color: #00d7f3;
 }
 .home-box {
+  background-color: #fff;
+}
+.signup-form {
   background-color: #fff;
 }
 .luCard {
