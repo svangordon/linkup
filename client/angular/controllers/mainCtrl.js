@@ -4,7 +4,10 @@ angular.module('mainCtrl', [])
 .controller('mainController', function($rootScope, $location, Auth) {
 
 	var vm = this;
-
+	vm.atHome = function () {
+		console.log()
+		return $location.path() === '/' || $location.path() === ''
+	}
 	console.log('right place')
 	vm.hideNav = function () {
       console.log('fired')

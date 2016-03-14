@@ -67,8 +67,7 @@
         </nav>
       </header>
 
-      <main class="">
-        <h1>{{main.bigMessage}}</h1>
+      <main  ng-class="{'home' : main.atHome()}">
         <div ng-view></div>
       </main>
 

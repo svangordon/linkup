@@ -10,6 +10,9 @@ body {
 main {
   flex: 1 0 auto;
 }
+main.home {
+  background-color: #00f;
+}
 header nav {
   background-color: #fff;
 }
