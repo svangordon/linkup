@@ -17,7 +17,7 @@
 
       </thead>
       <tbody class="league-body">
-        <tr ng-repeat="team in vm.table.standing" ng-class="{'active' : vm.activeTeam(team.teamName)}">
+        <tr ng-repeat="team in vm.table.standing" id="{{ 'row' + $index }}" ng-class="{'active-team' : vm.activeTeam(team.teamName)}">
           <td ng-bind="team.position"></td>
           <td>
             <img class="crest" ng-src="{{team.crestURI}}" alt="" />

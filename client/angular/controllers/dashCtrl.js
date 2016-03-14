@@ -1,6 +1,6 @@
 angular.module('dashCtrl', ['dataService','authService','userService'])
 
-  .controller('dashController', function (Auth, User) {
+  .controller('dashController', function (Auth, User, $anchorScroll, $location) {
     var vm = this;
 
     vm.dashFrames = [
@@ -30,8 +30,19 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     vm.activeFrame = 'news';
     vm.setActive = function (frame) {
       vm.activeFrame = frame
+      console.log(frame)
+      // TODO: make this fire as part of the ng-enter (or whatever) for the other ctrls
+      //  or their elements
+      if (frame === 'table'){
+        // $location.hash('active-team')
+        // $anchorScroll()
+      }
     }
+    // $('body').scrollTop(1000)
+
   })
+
+
 
   .controller('rssController', function (Rss, User) {
     var vm = this;
@@ -69,12 +80,15 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   })
 
-  .controller('tableController', function (Table, User, Team) {
+  .controller('tableController', function (Table, User, Team, $location, $anchorScroll) {
     var vm = this
     vm.userTeam = {}
     vm.activeTeam = function (teamName) {
       return teamName === vm.userTeam.name
     }
+
+    // $location.hash('active-team')
+    // $anchorScroll()
 
     User.profile()
       .then(function(resp) {
@@ -86,13 +100,20 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       })
       .then(function(resp){
         vm.userTeam = resp.data
-        // console.log('user team',vm.userTeam)
+        return vm.userTeam
+        console.log('user team',vm.userTeam)
+      })
+      .then(function (resp) {
+        return Table.data()
+      })
+      .then(function (resp) {
+        vm.table = resp.data
       })
 
-    Table.data()
-    .then(function(resp) {
-      // console.log('league table', resp.data)
-      vm.table = resp.data
-    })
+    // Table.data()
+    // .then(function(resp) {
+    //   // console.log('league table', resp.data)
+    //   vm.table = resp.data
+    // })
 
   })

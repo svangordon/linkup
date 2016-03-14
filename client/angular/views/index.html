@@ -49,7 +49,7 @@
             <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
             <!-- Non-mobile nav -->
             <ul id="" class="right hide-on-med-and-down">
-              <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+              <li ng-if="!main.loggedIn"><a href="/">Login</a></li>
               <li ng-if="main.loggedIn">Hello {{main.user.name}}</li>
               <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
               <li ><a href="/about">About</a></li>
@@ -57,7 +57,7 @@
             </ul>
             <!-- Mobile nav -->
             <ul id="nav-mobile" class="side-nav" ng-click="main.hideNav()">
-              <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+              <li ng-if="!main.loggedIn"><a href="/">Login</a></li>
               <li ng-if="main.loggedIn" ng-click="vm.hideNav()">Hello {{main.user.name}}</li>
               <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
               <li ><a href="/about">About</a></li>
@@ -67,27 +67,13 @@
         </nav>
       </header>
 
-      <main ng-class="{'home' : main.atHome(), 'signup' : main.atSignup()}">
+      <main ng-style="{'background-image' : 'url(' + main.bUrl() + ')'}">
         <div ng-view></div>
       </main>
 
       <footer class="page-footer">
         <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-              </ul>
-            </div>
-          </div>
+
         </div>
         <div class="footer-copyright">
           <div class="container">

@@ -1,7 +1,7 @@
 // Controller for the overarching page
 angular.module('mainCtrl', [])
 
-.controller('mainController', function($rootScope, $location, Auth) {
+.controller('mainController', function($rootScope, $location, Auth, User) {
 
 	var vm = this;
 	vm.atHome = function () {
@@ -13,7 +13,46 @@ angular.module('mainCtrl', [])
 		return $location.path() === '/signup' //|| $location.path() === ''
 	}
 
-	console.log('right place')
+// It's silly to call this all the time, just in case it's needed, but it's late and i'm tired
+// and this needs to get done in very little time.
+	User.profile()
+		.then(function(resp) {
+			vm.teamPref = resp.data.teamPref
+	})
+
+// TODO: move this call to a factory and the urls to the backend
+	vm.bUrl = function () {
+		// console.log('fired')
+		// Turns out pictures look bad behind the dash
+		// if ($location.path() === '/dash'){
+		// 	return teamDashImg(vm.teamPref)
+		// }
+		var pics = {
+			girl: 'https://c2.staticflickr.com/4/3455/3790590480_4bb5c69495_b.jpg',
+			stMarys : 'https://c2.staticflickr.com/2/1560/23792983544_d908975115_z.jpg',
+			lights : 'https://c2.staticflickr.com/8/7422/12676772194_3053b3eeed_b.jpg',
+			champs : 'https://upload.wikimedia.org/wikipedia/commons/3/3a/West_Stand_Champions.jpg'
+		}
+		var urls = {
+
+			'/signup':pics.stMarys,
+			'/' : pics.champs,
+			'/dash' : ''
+		}
+		if (urls[$location.path()] === undefined)
+			console.error(''+ $location.path() +' background not defined');
+		return urls[$location.path()] !== undefined ? urls[$location.path()] : ''
+	}
+
+	function teamDashImg (path) {
+		path = path.toLowerCase()
+		var defaultImg = 'https://c2.staticflickr.com/2/1560/23792983544_d908975115_z.jpg'
+		var teams = {
+			'afc' : 'https://c2.staticflickr.com/8/7422/12676772194_3053b3eeed_b.jpg'
+		}
+		return teams[path] !== undefined ? teams[path] : defaultImg
+	}
+
 	vm.hideNav = function () {
       console.log('fired')
       $('.button-collapse').sideNav('hide')
