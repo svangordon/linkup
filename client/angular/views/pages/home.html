@@ -1,21 +1,28 @@
-<div class="center">
-  <h1>Home Page</h1>
-  <p>
-    Welcome to my great website! What a great website.
-    <div class="" ng-include="'angular/views/pages/login.html'">
-
-    </div>
-  </p>
+<div class="row">
 
 </div>
 
-<!-- Modal Structure -->
-<div id="loginModal" class="modal">
-  <div class="modal-content" ng-include="'angular/views/pages/login.html'">
+<div class="row">
+  <div class="center home-box col s8 offset-s2 z-depth-3">
+    <h1>Home Page</h1>
+    <p>
+      Welcome to my great website! What a great website.
+      <div class="" ng-include="'angular/views/pages/login.html'">
 
+      </div>
+    </p>
+
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content" ng-include="'angular/views/pages/login.html'">
+
+    </div>
   </div>
 </div>
 
+<!-- init for login modal, now deprecated (?) -->
 <script type="text/javascript">
   $(document).ready(function() {
     $('.modal-trigger').leanModal();

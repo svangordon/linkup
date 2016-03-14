@@ -11,7 +11,7 @@ main {
   flex: 1 0 auto;
 }
 main.home {
-  background-color: #00f;
+  background-image: url("https://images.unsplash.com/photo-1430760814266-9c81759e5e55");
 }
 header nav {
   background-color: #fff;
@@ -21,6 +21,9 @@ header nav div {
 }
 header nav div a {
   color: #00d7f3;
+}
+.home-box {
+  background-color: #fff;
 }
 .luCard {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
