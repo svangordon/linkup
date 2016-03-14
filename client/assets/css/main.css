@@ -50,19 +50,6 @@ header nav div a {
 .luCard-content {
   width: 100%;
 }
-.dash-frame {
-  overflow: hidden;
-  width: 100%;
-  max-width: 1000px;
-  max-height: 500px;
-  margin: auto;
-}
-.dash-frame .scroll-container {
-  overflow: auto;
-  height: 70vh;
-  margin: 15px -300px 15px 15px;
-  padding-right: 300px;
-}
 .sub-nav .tabs {
   background-color: #6fd6a5;
 }

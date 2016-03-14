@@ -1,6 +1,6 @@
 angular.module('dashCtrl', ['dataService','authService','userService'])
 
-  .controller('dashController', function (Auth, User, $anchorScroll, $location) {
+  .controller('dashController', function (Auth, User, $anchorScroll, $location, $timeout, Table, Team) {
     var vm = this;
 
     vm.dashFrames = [
@@ -21,25 +21,60 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       }
     ]
 
-
+    // TODO: get this out of the controller, move it to a factory so that multiple
+    // controllers have access to this data
     User.profile()
       .then(function(resp) {
         vm.teamPref = resp.data
+        Team.data(resp.data.teamPref)
+          .then(function(resp) {
+            vm.userTeam = resp.data
+            var index = -1;
+            vm.table.standing.forEach(function(cur, i) {
+              console.log(cur.teamName, vm.userTeam.name);
+              if (cur.teamName === vm.userTeam.name)
+                vm.tableIndex = i
+            })
+          })
+        // console.log('teamPref',vm.teamPref)
       })
 
-    vm.activeFrame = 'news';
+      // TODO: This should be moved out of the controller, but no time for that now
+      Table.data()
+      .then(function (resp) {
+        vm.table = resp.data
+        console.log('table', vm.table)
+      })
+
+      $timeout(function() {
+        $location.hash('row'+vm.tableIndex)
+        // $anchorScroll()
+      }, 1000)
+
+      console.log('dashCtrl loaded')
+
+    vm.activeFrame = vm.activeFrame || 'news';
     vm.setActive = function (frame) {
       vm.activeFrame = frame
       console.log(frame)
       // TODO: make this fire as part of the ng-enter (or whatever) for the other ctrls
-      //  or their elements
+      //  or their elements... okay, so like, it needs both anchor scrolls? not clear why
       if (frame === 'table'){
-        $location.hash('row15')
-        $anchorScroll()
+        $timeout(function() {
+          $location.hash('row'+vm.tableIndex)
+          $anchorScroll()
+        }, 0)
         console.log('bang')
       }
     }
     // $('body').scrollTop(1000)
+    // NB: For getting the table scroll to work. timeout to make sure that the ng-repeat is done
+    // make
+    // aaaaaand it works!
+    $timeout(function() {
+      // $location.hash('row15')
+      // $anchorScroll()
+    }, 2000)
 
   })
 
@@ -81,14 +116,12 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   })
 
-  .controller('tableController', function (Table, User, Team, $location, $anchorScroll) {
+  .controller('tableController', function (Table, User, Team, $location) {
     var vm = this
     vm.userTeam = {}
     vm.activeTeam = function (teamName) {
       return teamName === vm.userTeam.name
     }
-
-
 
     User.profile()
       .then(function(resp) {
@@ -117,8 +150,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         //   if (cur.teamName === vm.userTeam.name)
         //     index = i
         // })
-        $location.hash('row15')
-        $anchorScroll()
+
       })
 
     // Table.data()
