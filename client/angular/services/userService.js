@@ -35,5 +35,10 @@ angular.module('userService', ['authService'])
         return $q.reject({message: 'User has no token.'})
     }
 
+    userFactory.profile()
+      .then(function(resp){
+        console.log('profile response', resp.data)
+      })
+
     return userFactory
   })

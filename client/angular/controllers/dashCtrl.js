@@ -30,11 +30,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
           .then(function(resp) {
             vm.userTeam = resp.data
             var index = -1;
-            vm.table.standing.forEach(function(cur, i) {
-              console.log(cur.teamName, vm.userTeam.name);
-              if (cur.teamName === vm.userTeam.name)
-                vm.tableIndex = i
-            })
+            // vm.table.standing.forEach(function(cur, i) {
+            //   console.log(cur.teamName, vm.userTeam.name);
+            //   if (cur.teamName === vm.userTeam.name)
+            //     vm.tableIndex = i
+            // })
           })
         // console.log('teamPref',vm.teamPref)
       })
@@ -43,28 +43,33 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       Table.data()
       .then(function (resp) {
         vm.table = resp.data
-        console.log('table', vm.table)
+        // console.log('table', vm.table)
       })
 
-      $timeout(function() {
-        $location.hash('row'+vm.tableIndex)
-        // $anchorScroll()
-      }, 1000)
+      // var initTableScroll = function(){
+      //   $timeout(function() {
+      //     // $location.hash('row'+Table.userStanding)
+      //     // $anchorScroll()
+      //     // console.log(Table.userStanding)
+      //   }, 1000)
+      // }
 
-      console.log('dashCtrl loaded')
+      // console.log(Table.userStanding)
 
     vm.activeFrame = vm.activeFrame || 'news';
     vm.setActive = function (frame) {
       vm.activeFrame = frame
-      console.log(frame)
+      // console.log(frame)
       // TODO: make this fire as part of the ng-enter (or whatever) for the other ctrls
       //  or their elements... okay, so like, it needs both anchor scrolls? not clear why
+      // DONE: I think i've gotten it figured out -- it needs to look like this. Good.
+      // The problem now is that it's got a ton of ajax calls, that all need to be moved backwards
       if (frame === 'table'){
         $timeout(function() {
-          $location.hash('row'+vm.tableIndex)
-          $anchorScroll()
+          // $location.hash('row'+Table.userStanding)
+          $anchorScroll('row' + Table.userStanding)
         }, 0)
-        console.log('bang')
+        // console.log('bang')
       }
     }
     // $('body').scrollTop(1000)
