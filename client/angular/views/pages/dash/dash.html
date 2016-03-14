@@ -12,13 +12,7 @@
   <h5>dash template</h5>
 
   <div class="dash-frames-container">
-    <div class="row">
-      <div class="col s6">
-        <ng-include ng-class="{'hide-on-small-only' : vm.activeFrame !== frame.id}" ng-repeat="frame in vm.dashFrames"  src="frame.href">
-
-      </div>
-
-    </div>
+    <ng-include ng-class="{'hide-on-small-only' : vm.activeFrame !== frame.id}" ng-repeat="frame in vm.dashFrames"  src="frame.href">
 
     </ng-include>
   </div>
