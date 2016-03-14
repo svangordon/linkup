@@ -34,8 +34,9 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       // TODO: make this fire as part of the ng-enter (or whatever) for the other ctrls
       //  or their elements
       if (frame === 'table'){
-        // $location.hash('active-team')
-        // $anchorScroll()
+        $location.hash('row15')
+        $anchorScroll()
+        console.log('bang')
       }
     }
     // $('body').scrollTop(1000)
@@ -87,8 +88,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       return teamName === vm.userTeam.name
     }
 
-    // $location.hash('active-team')
-    // $anchorScroll()
+
 
     User.profile()
       .then(function(resp) {
@@ -108,6 +108,17 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       })
       .then(function (resp) {
         vm.table = resp.data
+        // console.log(vm.table);
+        // console.log(vm.table.standing.indexOf(vm.userTeam))
+        // ====== this was a waste of time but seemed promising
+        // var index = -1;
+        // vm.table.standing.forEach(function(cur, i) {
+        //   console.log(cur.teamName, vm.userTeam.name);
+        //   if (cur.teamName === vm.userTeam.name)
+        //     index = i
+        // })
+        $location.hash('row15')
+        $anchorScroll()
       })
 
     // Table.data()
