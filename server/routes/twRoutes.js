@@ -9,4 +9,10 @@ var twCtrls = require('../controllers/twControllers.js'),
 apiRouter.route('/test')
   .get(twCtrls.test)
 
+apiRouter.route('/getOne/:id')
+  .get(twCtrls.getOne)
+
+apiRouter.route('/search/:team')
+  .get(twCtrls.search)
+
 module.exports = apiRouter

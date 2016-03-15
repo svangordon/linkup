@@ -21,12 +21,12 @@ module.exports = {
             res.json({success: false, message: 'Authentication failed. Invalid password'})
           } else {
             // create token
-            console.log('pword match');
+            // console.log('pword match');
             var token = {};
             for (i in user) {
               token[i] = user[i]
             }
-            console.log('=======user token========')
+            // console.log('=======user token========')
             token = jwt.sign(token, config.JWT_SECRET, {
               expiresIn: 86400
             })
@@ -42,7 +42,7 @@ module.exports = {
       })
   }
   , middleware: function (req, res, next) {
-      console.log(req.params.token)
+      // console.log(req.params.token)
       // check for token
       var token = req.body.token || req.params.token || req.headers['x-access-token'];
       // decode token

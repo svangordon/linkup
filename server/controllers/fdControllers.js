@@ -57,7 +57,7 @@ module.exports = {
         }
         , fixtures: function (req, res) {
           // console.log('req.params', req.params)
-          console.log('fd team fixtures', req.params);
+          // console.log('fd team fixtures', req.params);
           var options = {
             url: urlStem + 'teams/' + teamCode(req.params.teamCode),
             headers: fdHeaders
@@ -95,9 +95,9 @@ module.exports = {
             if (err) console.error(error);
             var out = {}
             body = JSON.parse(body)
-            console.log(body);
+            // console.log(body);
             body.teams.forEach(function(cur) { out[cur.name] = cur.crestUrl })
-            console.log(out)
+            // console.log(out)
             res.send(out)
           })
         }

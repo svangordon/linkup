@@ -15,6 +15,9 @@ main {
   flex: 1 0 auto;
   background-size: cover;
 }
+footer.page-footer {
+  background-color: #6fd6a5;
+}
 main.home {
   background-size: cover;
   background-image: url("https://c2.staticflickr.com/8/7422/12676772194_3053b3eeed_b.jpg");
@@ -27,7 +30,7 @@ header nav {
   background-color: #fff;
 }
 header nav div {
-  border-bottom: 2px solid #00d7f3;
+  border-bottom: 2px solid #f03;
 }
 header nav div a {
   color: #00d7f3;
@@ -79,7 +82,7 @@ header nav div a {
   background-color: #6fd6a5;
 }
 .sub-nav .tabs .indicator {
-  background-color: #f03;
+  background-color: #00d7f3;
 }
 .sub-nav .active {
   background-color: #6fd6a5;

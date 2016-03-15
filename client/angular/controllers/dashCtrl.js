@@ -2,7 +2,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   .controller('dashController', function (Auth, User, $anchorScroll, $location, $timeout, Table, Team) {
     var vm = this;
-
+    vm.onOff = false
     vm.dashFrames = [
       {
         id: 'news',
@@ -18,6 +18,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         id: 'table',
         name: 'Table',
         href: 'angular/views/pages/dash/table.html'
+      },
+      {
+        id: 'social',
+        name: 'Social',
+        href: 'angular/views/pages/dash/social.html'
       }
     ]
 
@@ -224,4 +229,50 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         return $('.league-table').outerWidth()
       }
 
+  })
+
+  .controller('socialController', function (User, Team, Twitter, $sce) {
+    var vm = this
+    Twitter.test()
+      .then(function (resp) {
+        // console.log(resp.data)
+        // vm.tweets = $sce.trustAsHtml(resp.data.html)
+      })
+    vm.encodedTweets = []
+    User.profile()
+      .then(function (resp) {
+        return resp.data.teamPref
+        // vm.timeline = $sce.trustAsHtml(Twitter.timeline(resp.data.teamPref))
+      })
+      .then(function (teamPref) {
+        return Twitter.search(teamPref)
+      })
+      .then(function (stream) {
+        vm.tweets = stream.data.statuses
+        // vm.tweets = vm.tweets.map(cur => cur.id)
+        console.log(vm.tweets)
+        return vm.tweets
+      })
+      .then(function (tweets) {
+        console.log('tweets',tweets)
+        // return Twitter.getOne(tweets[0].id_str)
+        tweets.forEach(function (cur) {
+          Twitter.getOne(cur.id_str)
+            .then(function(resp) {
+              // console.log('getone response', resp)
+              vm.encodedTweets.push( $sce.trustAsHtml(resp.data.html))
+            })
+        })
+        // console.log('encoded',vm.encodedTweets)
+      })
+      // .then(function (tweet) {
+      //   console.log('tweet', tweet)
+      //   vm.tweet = $sce.trustAsHtml(tweet.data.html)
+      // })
+
+    // Twitter.timeline()
+    //   .then(function (resp) {
+    //     console.log(resp)
+    //     vm.timeline = $sce.trustAsHtml(resp)
+    //   })
   })

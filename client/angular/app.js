@@ -6,7 +6,8 @@ angular.module('linkupApp', [
   'userCtrl',
   'dashCtrl',
   'dataService',
-  'dashFilters'
+  'dashFilters',
+  'socialService'
 
 ])
   .config(function ($httpProvider) {

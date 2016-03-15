@@ -4,7 +4,7 @@
       <div class="col s12">
         <nav class="sub-nav-nav">
           <ul class="tabs" style="box-shadow : 0 10px 25px rgba(0,0,0,.15);">
-            <li class="tab col s3" id="{{nav.id}}" ng-repeat="nav in vm.dashFrames" ><a class="white-text" href="#" ng-bind="nav.name" ng-click="vm.setActive(nav.id)"></a></li>
+            <li ng-click="vm.log(main.val)" class="tab col s3" id="{{nav.id}}" ng-repeat="nav in vm.dashFrames" ><a class="white-text" href="#" ng-bind="nav.name" ng-click="vm.setActive(nav.id)"></a></li>
           </ul>
         </div>
       </nav>
@@ -14,6 +14,19 @@
   <div class="dash-frames-container">
     <ng-include ng-repeat="frame in vm.dashFrames"  src="frame.href" ng-show="vm.activeFrame === frame.id">
     </ng-include>
+    <div id="preloader" class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- <div class=""  ng-include="'angular/views/pages/dash/rss.html'"></div>

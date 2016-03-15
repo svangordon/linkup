@@ -10,8 +10,8 @@ var db = require('../models'),
 
 module.exports = {
   team : function (req, res) {
-    console.log('rssControllers req ========== ')
-    console.log(req.params);
+    // console.log('rssControllers req ========== ')
+    // console.log(req.params);
     var feed = feedUrls[req.params.teamName];
     // remember, ballboy contains the res.send (not for any good reason)
     fetchRss(feed, res);

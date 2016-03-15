@@ -4,6 +4,7 @@ angular.module('mainCtrl', [])
 .controller('mainController', function($rootScope, $location, Auth, User) {
 
 	var vm = this;
+
 	vm.atHome = function () {
 		console.log()
 		return $location.path() === '/' || $location.path() === ''
