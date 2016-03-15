@@ -60,17 +60,20 @@ header nav div a {
   width: 100%;
   bottom: 0;
 }
-.sub-nav-container {
-  z-index: 10;
-}
 .scroll-container {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
+.sub-nav-container {
+  z-index: 10;
+}
 .sub-nav-nav {
   background-color: #fff;
   height: 8vh;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 600px;
 }
 .sub-nav .tabs {
   background-color: #6fd6a5;

@@ -99,8 +99,6 @@ home-box-color = white
   width 100%
   bottom 0
 
-.sub-nav-container
-  z-index: 10
 .scroll-container
   max-width 600px
   margin-left: auto;
@@ -124,11 +122,14 @@ home-box-color = white
 //     padding-right: 300px
 
 .sub-nav
+  &-container
+    z-index: 10
   &-nav
     background-color: white
     height 8vh
-  // a
-  //   color: tab-text-color
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 600px;
   .tabs
     background-color: active-sub-nav-color
     .indicator
