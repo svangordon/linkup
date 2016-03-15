@@ -55,6 +55,11 @@ header nav div a {
   position: absolute;
   width: 100%;
 }
+.matchday-item {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
 .scroll-container {
   max-width: 600px;
   margin-left: auto;
@@ -135,5 +140,5 @@ header nav div a {
   height: 20px;
 }
 .league-table .active-team {
-  background-color: #f00;
+  background-color: rgba(0,0,255,0.5);
 }

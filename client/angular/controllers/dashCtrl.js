@@ -219,14 +219,9 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         // This then call is vestigial
         vm.table = Table.table
       })
-      // .then(function (resp) {
-      //   vm.table = resp.data
-      // })
 
-    // Table.data()
-    // .then(function(resp) {
-    //   // console.log('league table', resp.data)
-    //   vm.table = resp.data
-    // })
+      vm.offset = function() {
+        return $('.league-table').outerWidth()
+      }
 
   })
