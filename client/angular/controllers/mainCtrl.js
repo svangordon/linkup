@@ -9,7 +9,6 @@ angular.module('mainCtrl', [])
 		return $location.path() === '/' || $location.path() === ''
 	}
 	vm.atSignup = function () {
-		console.log('at signup fired')
 		return $location.path() === '/signup' //|| $location.path() === ''
 	}
 
@@ -99,7 +98,7 @@ angular.module('mainCtrl', [])
 		Auth.logout();
 		vm.user = '';
 
-		$location.path('/login');
+		$location.path('/');
 	};
 
 
