@@ -83,6 +83,7 @@ home-box-color = white
 
 // Global styles
 .luCard
+  position relative
   box-shadow: cardShadow
   display block
   margin 10px//0 10px 10px 10px 10px
@@ -90,9 +91,20 @@ home-box-color = white
   //padding 10px
   &-content
     width 100%
+.date-item
+  position absolute
+  width 100%
+
+.scroll-container
+  max-width 600px
+  margin-left: auto;
+  margin-right: auto;
+
 
 // NB: Temporarily disabling these styles while I try to get anchorScroll to work
 // styling for the dash boxes
+// NB: I've decided that I don't like how this works, and it's actually a huge pain
+// in the ass, so I'm nixing the entire thing fux that
 // .dash-frame
 //   overflow: hidden;
 //   width: 100%
@@ -106,6 +118,9 @@ home-box-color = white
 //     padding-right: 300px
 
 .sub-nav
+  &-nav
+    background-color: white
+    height 8vh
   // a
   //   color: tab-text-color
   .tabs
@@ -114,6 +129,9 @@ home-box-color = white
       background-color: indicator-color
   .active
     background-color: active-sub-nav-color
+  ul
+    height 100%
+    overflow: hidden
 
 // RSS Card styles -- should be easily adapted to other stuff
 
@@ -121,9 +139,17 @@ home-box-color = white
   rssIconHeight = 150px
   rssIconWidth = 150px
 
+.rss-card.active
+
+.rss-link
+  margin-bottom 10px
+
 .rss-card
+  margin-left auto
+  margin-right auto
   &-image-container
     height auto
+    margin-top: 10px
     // display inline-block
     // position absolute
     // width 50
@@ -135,20 +161,41 @@ home-box-color = white
     max-height: rssIconHeight
     max-width: rssIconWidth
   &-text
+    font-weight: 700;
     margin-left 115px
     display inline-block
     width: 60%
     height auto
+    &-title
+      font-size large
 
   // Schedule styles
 schedIconHeight = 50px
 schedIconWidth = 50px
+.schedule-card.won
+  background-color: rgba(0,128,0,.5)
+.schedule-card.lost
+  background-color: rgba(255,0,0,.5)
+.schedule-card.draw
+  background-color: rgba(255,255,0,.5)
+.schedule-card.played
+  // background-color: green
+  .active-game
+    background-color rgba(0,0,255,.5)
 .schedule-card
   .logo
     max-height schedIconHeight
     max-width schedIconWidth
   .score
-    font-size: larger
+    font-size: 200%
+
+normal-shadow = 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)
+draw-shadow = 0 12px 15px 0 rgba(0,0,0,.16), 0 17px 50px 0 rgba(255,255,0,0.12)
+
+.schedule-card.active-game
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
+.schedule-card.draw
+  // box-shadow: draw-shadow
 
 .league-table
   position relative

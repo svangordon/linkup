@@ -42,6 +42,7 @@ header nav div a {
   margin-bottom: 10px;
 }
 .luCard {
+  position: relative;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   display: block;
   margin: 10px;
@@ -49,6 +50,19 @@ header nav div a {
 }
 .luCard-content {
   width: 100%;
+}
+.date-item {
+  position: absolute;
+  width: 100%;
+}
+.scroll-container {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sub-nav-nav {
+  background-color: #fff;
+  height: 8vh;
 }
 .sub-nav .tabs {
   background-color: #6fd6a5;
@@ -59,8 +73,21 @@ header nav div a {
 .sub-nav .active {
   background-color: #6fd6a5;
 }
+.sub-nav ul {
+  height: 100%;
+  overflow: hidden;
+}
+.rss-card.active,
+.rss-link {
+  margin-bottom: 10px;
+}
+.rss-card {
+  margin-left: auto;
+  margin-right: auto;
+}
 .rss-card-image-container {
   height: auto;
+  margin-top: 10px;
 }
 .rss-card-image {
   margin: 0 10px 10px 10px 10px;
@@ -69,17 +96,36 @@ header nav div a {
   max-width: 150px;
 }
 .rss-card-text {
+  font-weight: 700;
   margin-left: 115px;
   display: inline-block;
   width: 60%;
   height: auto;
+}
+.rss-card-text-title {
+  font-size: large;
+}
+.schedule-card.won {
+  background-color: rgba(0,128,0,0.5);
+}
+.schedule-card.lost {
+  background-color: rgba(255,0,0,0.5);
+}
+.schedule-card.draw {
+  background-color: rgba(255,255,0,0.5);
+}
+.schedule-card.played .active-game {
+  background-color: rgba(0,0,255,0.5);
 }
 .schedule-card .logo {
   max-height: 50px;
   max-width: 50px;
 }
 .schedule-card .score {
-  font-size: larger;
+  font-size: 200%;
+}
+.schedule-card.active-game {
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .league-table {
   position: relative;

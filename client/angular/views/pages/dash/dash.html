@@ -1,13 +1,15 @@
 <div class="">
-  <!-- <nav> -->
+  <div class="navbar-fixed">
     <div class="sub-nav row">
       <div class="col s12">
-        <ul class="tabs" style="box-shadow : 0 10px 25px rgba(0,0,0,.15);">
-          <li class="tab col s3" id="{{nav.id}}" ng-repeat="nav in vm.dashFrames" ><a class="white-text" href="#" ng-bind="nav.name" ng-click="vm.setActive(nav.id)"></a></li>
-        </ul>
-      </div>
+        <nav class="sub-nav-nav">
+          <ul class="tabs" style="box-shadow : 0 10px 25px rgba(0,0,0,.15);">
+            <li class="tab col s3" id="{{nav.id}}" ng-repeat="nav in vm.dashFrames" ><a class="white-text" href="#" ng-bind="nav.name" ng-click="vm.setActive(nav.id)"></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
-  <!-- </nav> -->
+  </div>
 
   <div class="dash-frames-container">
     <ng-include ng-repeat="frame in vm.dashFrames"  src="frame.href" ng-show="vm.activeFrame === frame.id">

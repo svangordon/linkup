@@ -1,8 +1,10 @@
 <div class="dash-frame" ng-controller="scheduleController as vm">
   <div class="scroll-container">
-    <div class="schedule-card luCard" ng-repeat="fixture in vm.schedule.fixtures">
+    <div class="schedule-card luCard" ng-repeat="fixture in vm.schedule.fixtures" id="{{'match' + fixture.matchday}}" ng-class=" [{ 'active-game' : fixture.matchday === vm.table.matchday } , vm.setClasses(fixture)]" ng-click="vm.log(fixture.result.goalsHomeTeam)">
         <div class="luCard-content row">
+            <p class="date-item center-align" ng-bind="fixture.date | date">
 
+            </p>
             <div class="col s6">
               <p ng-bind="fixture.homeTeamName | nameTrim"></p>
             </div>

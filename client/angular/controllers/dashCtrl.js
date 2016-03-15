@@ -40,11 +40,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       })
 
       // TODO: This should be moved out of the controller, but no time for that now
-      Table.data()
-      .then(function (resp) {
-        vm.table = resp.data
+      // Table.data()
+      // .then(function (resp) {
+        vm.table = Table.table
         // console.log('table', vm.table)
-      })
+      // })
 
       // var initTableScroll = function(){
       //   $timeout(function() {
@@ -66,10 +66,14 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       // The problem now is that it's got a ton of ajax calls, that all need to be moved backwards
       if (frame === 'table'){
         $timeout(function() {
-          // $location.hash('row'+Table.userStanding)
           $anchorScroll('row' + Table.userStanding)
         }, 0)
         // console.log('bang')
+      } else if (frame === 'schedule') {
+        $timeout(function() {
+          $anchorScroll.yOffset = 250;
+          $anchorScroll('match' + Table.matchday)
+        }, 0)
       }
     }
     // $('body').scrollTop(1000)
@@ -87,6 +91,13 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   .controller('rssController', function (Rss, User) {
     var vm = this;
+    vm.activeCard;
+
+    vm.setActive = function (index) {
+      // if they're clicking on the active card, close it
+      vm.activeCard = vm.activeCard !== index ? index : null
+      console.log(vm.activeCard)
+    }
 
     // TODO: I can't find a way to do this in the dash crtl and pass it,
     //     so i'm doing it in each controller :/
@@ -101,8 +112,59 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     })
   })
 
-  .controller('scheduleController', function (Schedule, User, Team) {
+  .controller('scheduleController', function (Schedule, User, Team, Table) {
     var vm = this;
+    // vm.table = Table.table
+    // vm.matchday = Table.table.matchday
+    vm.log = function(val) {console.log(val);}
+
+    vm.setClasses = function(fixture) {
+      var out = {
+        'played' : false,
+        'future' : false,
+        'won' : false,
+        'lost' : false,
+        'draw' : false,
+      }
+      // TODO: do this elegant
+      var homeGoals = fixture.result.goalsHomeTeam
+      var awayGoals = fixture.result.goalsAwayTeam
+      var homeName = fixture.homeTeamName
+      var awayName = fixture.awayTeamName
+      var userGoals;
+      var oppGoals;
+      // console.log('userteam', vm.userTeam)
+      if (vm.userTeam) {
+        // console.log(fixture)
+        if (vm.userTeam.name === homeName) {
+          userGoals = homeGoals
+          oppGoals = awayGoals
+        } else {
+          userGoals = awayGoals
+          oppGoals = homeGoals
+        }
+        // Before this was done w/ the status codes, but those don't seem to mean
+        // anything and aren't consistent
+        // console.log(homeName, '-', awayName, homeGoals === null)
+        out.future = homeGoals === null;
+        out.played = !out.future
+
+        if (out.played === true) {
+          // console.log('fired')
+          // console.log(homeName, '-', awayName, homeGoals, awayGoals, homeGoals === awayGoals )
+          if (homeGoals === awayGoals) {
+            // console.log('bang')
+            out.draw = true
+          } else {
+            out.won = userGoals > oppGoals
+            out.lost = !out.won
+          }
+        }
+      }
+      return out
+    }
+
+
     User.profile()
       .then(function(resp) {
         vm.teamPref = resp.data.teamPref
@@ -110,14 +172,26 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         .then(function(resp) {
           // console.log('team sched', resp.data)
           vm.schedule = resp.data
-          // console.log(vm.schedule)
         })
+        .then(function() {
+          // TODO: pass full name along with the team pref(this api blows)
+          return Team.data(vm.teamPref)
+        })
+        .then(function (resp) {
+          // console.log('team data resp', resp.data)
+          vm.userTeam = resp.data
+        })
+        // vm.matchday = vm.table.matchday
     })
     Team.logos()
     .then(function(resp) {
       vm.logos = resp.data
       // console.log(vm.logos)
     })
+    Table.data()
+      .then(function(resp) {
+        vm.table = resp.data
+      })
 
   })
 
@@ -142,21 +216,12 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         console.log('user team',vm.userTeam)
       })
       .then(function (resp) {
-        return Table.data()
+        // This then call is vestigial
+        vm.table = Table.table
       })
-      .then(function (resp) {
-        vm.table = resp.data
-        // console.log(vm.table);
-        // console.log(vm.table.standing.indexOf(vm.userTeam))
-        // ====== this was a waste of time but seemed promising
-        // var index = -1;
-        // vm.table.standing.forEach(function(cur, i) {
-        //   console.log(cur.teamName, vm.userTeam.name);
-        //   if (cur.teamName === vm.userTeam.name)
-        //     index = i
-        // })
-
-      })
+      // .then(function (resp) {
+      //   vm.table = resp.data
+      // })
 
     // Table.data()
     // .then(function(resp) {

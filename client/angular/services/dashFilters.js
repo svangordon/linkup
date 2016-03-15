@@ -12,7 +12,15 @@ angular.module('dashFilters', [])
         .replace(/FC|AFC/, '')
         .replace('Palace', 'Pal.')
         .trim()
+      return out
+    }
+  })
 
+  .filter('cardTrim', function () {
+    return function (text) {
+      out = text
+        .replace(/<br>/g, '\n')
+        .replace('..', '.')
       return out
     }
   })

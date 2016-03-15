@@ -29,11 +29,14 @@ angular.module('dataService', ['userService'])
       return $http.get('/api/fd/table')
     }
 
-    $http.get('/api/fd/table')
-      .then(function (resp) {
-        tableFactory.table = resp.data
-      })
+    // I thought this would work but it doesn't?
+    // $http.get('/api/fd/table')
+    //   .then(function (resp) {
+    //     tableFactory.table = resp.data
+    //     console.log(tableFactory.table)
+    //   })
 
+// TODO: I think that this is slowing things down -- it's making everything wait on this ajax call
     function getStanding () {
       User.profile()
         .then(function (resp) {
@@ -59,8 +62,16 @@ angular.module('dataService', ['userService'])
           })
         })
     }
+    getMatchday = function () {
+      tableFactory.data()
+        .then (function (resp) {
+          tableFactory.table = resp.data
+          tableFactory.matchday = resp.data.matchday
+        })
+    }
 
     getStanding()
+    getMatchday()
     // console.log(tableFactory.userStanding)
     return tableFactory
   })

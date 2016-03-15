@@ -37,7 +37,7 @@ angular.module('userService', ['authService'])
 
     userFactory.profile()
       .then(function(resp){
-        console.log('profile response', resp.data)
+        // console.log('profile response', resp.data)
       })
 
     return userFactory

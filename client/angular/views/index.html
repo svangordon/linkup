@@ -43,6 +43,9 @@
   <body ng-controller="mainController as main">
     <!-- <div class="container"> -->
       <header>
+
+        <div class="navbar-fixed"><!-- navbar fixed wrapper -->
+
         <nav class="blue-text">
           <div class="nav-wrapper">
             <a href="#" ng-click="main.hideNav()" class="left">LinkUp</a>
@@ -65,6 +68,9 @@
             </ul>
           </div>
         </nav>
+
+      </div><!-- navbar fixed wrapper -->
+
       </header>
 
       <main ng-style="{'background-image' : 'url(' + main.bUrl() + ')'}">
