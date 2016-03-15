@@ -38,6 +38,7 @@ angular.module('mainCtrl', [])
 			'/signup':pics.stMarys,
 			'/' : pics.champs,
 			'/dash' : ''
+			'/about' : pics.lights
 		}
 		if (urls[$location.path()] === undefined)
 			console.error(''+ $location.path() +' background not defined');
