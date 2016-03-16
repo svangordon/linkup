@@ -58,6 +58,7 @@ module.exports = {
         , fixtures: function (req, res) {
           // console.log('req.params', req.params)
           // console.log('fd team fixtures', req.params);
+          console.log('fixtures code', req.params.teamCode, teamCode(req.params.teamCode))
           var options = {
             url: urlStem + 'teams/' + teamCode(req.params.teamCode),
             headers: fdHeaders
