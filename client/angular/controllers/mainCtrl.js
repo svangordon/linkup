@@ -37,7 +37,7 @@ angular.module('mainCtrl', [])
 
 			'/signup':pics.stMarys,
 			'/' : pics.champs,
-			'/dash' : ''
+			'/dash' : '',
 			'/about' : pics.lights
 		}
 		if (urls[$location.path()] === undefined)
