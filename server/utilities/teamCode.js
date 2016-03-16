@@ -4,8 +4,8 @@
 module.exports = function convertTeamCode (input) {
   var nameToCode = {
     'mufc' : 66,
-    'thfc' :1044,
-    'afcb' : 73,
+    'thfc' :73,
+    'afcb' : 1044,
     'avfc' : 58,
     'efc' : 62,
     'wat' : 346,
@@ -38,14 +38,14 @@ module.exports = function convertTeamCode (input) {
   '70': 'scfc',
   '71': 'sun',
   '72': 'swa',
-  '73': 'afcb',
+  '1044': 'afcb',
   '74': 'wba',
   '338': 'lcfc',
   '340': 'sfc',
   '346': 'wat',
   '354': 'cry',
   '563': 'whu',
-  '1044': 'thfc' }
+  '73': 'thfc' }
 
   if ( isNaN(parseInt(input)) ) { // convert str to num
     return nameToCode[input]
