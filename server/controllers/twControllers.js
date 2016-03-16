@@ -43,8 +43,23 @@ module.exports = {
     console.log('search team ===========', team)
     // TODO: Include search params for other teams (especially before you demo)
     var searchVal = {
-      'cry' : '#cpfc',
-      'thfc' : 'tottenham hotspur coys spurs'
+      'cry' : '#cpfc'
+      , 'thfc' : 'tottenham'
+      , 'mufc' : '#manutd'
+      , 'afcb' : '#afcb'
+      , 'avfc' : 'aston villa #avfc'
+      , 'efc'  : 'everton efc'
+      , 'wat'  : '#watfordfc'
+      , 'lcfc' : 'leicester city'
+      , 'sun'  : '#safc'
+      , 'ncfc' : '#nufc'
+      , 'sfc'  : 'saintsfc'
+      , 'afc'  : 'arsenal'
+      , 'whu'  : 'west ham'
+      , 'lfc'  : 'liverpool fc'
+      , 'wba'  : 'west brom'
+      , 'mcfc' : '#mcfc'
+
     }
     var searchObj = searchVal[team]
 
