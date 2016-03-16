@@ -68,6 +68,9 @@ header nav div a {
   margin-left: auto;
   margin-right: auto;
 }
+.signup {
+  margin-bottom: 10px;
+}
 .sub-nav-container {
   z-index: 10;
 }

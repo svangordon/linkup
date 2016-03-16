@@ -41,8 +41,10 @@ module.exports = {
   search : function (req, res) {
     var team = req.params.team;
     console.log('search team ===========', team)
+    // TODO: Include search params for other teams (especially before you demo)
     var searchVal = {
-      'cry' : '#cpfc'
+      'cry' : '#cpfc',
+      'thfc' : 'tottenham hotspur coys spurs'
     }
     var searchObj = searchVal[team]
 

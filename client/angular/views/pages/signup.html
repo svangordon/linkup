@@ -5,6 +5,7 @@
 <div class="signup-template">
   <div class="row">
     <form class="col s10 offset-s1 l6 offset-l3 signup-form" ng-submit="vm.saveUser()">
+      <p>Who are ya?</p>
       <div class="row">
         <div class="input-field col s12">
           <input id="username" type="text" ng-model="vm.userData.username" class="validate">
@@ -36,7 +37,7 @@
           </select>
         </div>
       </div>
-      <button class="signup-submit btn waves-effect waves-light" type="submit" name="action">Submit
+      <button class="signup-submit btn waves-effect waves-light right" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
       <br>
