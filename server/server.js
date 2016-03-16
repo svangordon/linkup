@@ -32,7 +32,7 @@ mongoose.connect(mongodb_url, function (err) {
 })
 
 // Setup Middleware
-app.set('port', process.env.PORT || 3000) // I could just hardcode this to 3k, but...
+app.set('port', config.PORT || 3000) // I could just hardcode this to 3k, but...
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({
   extended : true
