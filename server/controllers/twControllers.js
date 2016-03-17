@@ -56,10 +56,10 @@ module.exports = {
       , 'sfc'  : 'saintsfc'
       , 'afc'  : 'arsenal'
       , 'whu'  : 'west ham'
-      , 'lfc'  : 'liverpool fc'
+      , 'lfc'  : '#lfc'
       , 'wba'  : 'west brom'
       , 'mcfc' : '#mcfc'
-
+      , 'swa'  : 'swansea City'
     }
     var searchObj = searchVal[team]
 
