@@ -60,6 +60,7 @@ module.exports = {
       , 'wba'  : 'west brom'
       , 'mcfc' : '#mcfc'
       , 'swa'  : 'swansea City'
+      , 'cfc'  : 'chelsea fc'
     }
     var searchObj = searchVal[team]
 
