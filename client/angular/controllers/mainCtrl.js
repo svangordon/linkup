@@ -15,6 +15,7 @@ angular.module('mainCtrl', [])
 
 // It's silly to call this all the time, just in case it's needed, but it's late and i'm tired
 // and this needs to get done in very little time.
+// TODO: Make this request logical and efficient (ie, make it only once)
 	User.profile()
 		.then(function(resp) {
 			vm.teamPref = resp.data.teamPref
@@ -75,12 +76,18 @@ angular.module('mainCtrl', [])
 			})
 	});
 
+	// For guest login
+	vm.guest = function() {
+		vm.loginData = {}
+		vm.loginData.username = 'guest'
+		vm.loginData.password = 'password'
+	}
+
 	// function to handle login form
 	vm.doLogin = function() {
 		vm.processing = true;
 
-		// clear the error
-		vm.error = '';
+		vm.loginData.username = vm.loginData.username.toLowerCase()
 
 		Auth.login(vm.loginData.username, vm.loginData.password)
 			.then(function(data) {
