@@ -33,12 +33,12 @@ mongoose.connect(mongodb_url, function (err) {
 
 // Setup Middleware
 
-app.set('port', config.PORT || 3000) // I could just hardcode this to 3k, but...
+app.set('port', config.PORT || 3000)
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({
   extended : true
 }))
-// Why is this here?i
+// TODO: Determine function of this middleware
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
@@ -59,12 +59,17 @@ app.get('/', function (req, res) {
 })
 
 // Authentication
+// NOTE: Temporarily disabled 3/22/16
 app.use('/api/authenticate', authRoutes)
-// TODO: I moved the middleware below all the routes because it was authenticating the create users routes, should fix that and move back
+
+// TODO: I moved the middleware below all the routes because it was authenticating
+// the create users routes, should fix that and move back
+
 // endpoints
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
 app.use('/api/users', userRoutes)
+// NOTE: Temp disabled 3/22/16
 app.use(authCtrls.middleware)
 app.use('/api/me', meRoutes)
 app.use('/api/rss', rssRoutes)

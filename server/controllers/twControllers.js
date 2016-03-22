@@ -49,7 +49,7 @@ module.exports = {
       , 'afcb' : '#afcb'
       , 'avfc' : 'aston villa #avfc'
       , 'efc'  : 'everton efc'
-      , 'wat'  : '#watfordfc'
+      , 'watfordfc'  : '#watfordfc'
       , 'lcfc' : 'leicester city'
       , 'sun'  : '#safc'
       , 'ncfc' : '#nufc'
