@@ -153,7 +153,7 @@ header nav div a {
   height: 20px;
 }
 .league-table .active-team {
-  background-color: rgba(0,0,255,0.5);
+  background-color: rgba(0,0,255,0.5) !important;
 }
 .social-frame iframe {
   margin: auto;
