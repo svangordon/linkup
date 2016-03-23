@@ -131,7 +131,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         'lost' : false,
         'draw' : false,
       }
-      // TODO: do this elegant
+      // TODO: do this elegant (ternary operators, etc)
       var homeGoals = fixture.result.goalsHomeTeam
       var awayGoals = fixture.result.goalsAwayTeam
       var homeName = fixture.homeTeamName

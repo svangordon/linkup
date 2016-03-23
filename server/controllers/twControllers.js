@@ -52,7 +52,7 @@ module.exports = {
       , 'watfordfc'  : '#watfordfc'
       , 'lcfc' : 'leicester city'
       , 'sun'  : '#safc'
-      , 'ncfc' : '#nufc'
+      , 'ncfc' : '#ncfc'
       , 'sfc'  : 'saintsfc'
       , 'afc'  : 'arsenal'
       , 'whu'  : 'west ham'
@@ -61,6 +61,8 @@ module.exports = {
       , 'mcfc' : '#mcfc'
       , 'swa'  : 'swansea City'
       , 'cfc'  : 'chelsea fc'
+      , 'nufc' : 'newcastle united'
+      , 'scfc' : 'stoke city'
     }
     var searchObj = searchVal[team]
 

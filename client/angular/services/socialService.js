@@ -27,15 +27,15 @@ angular.module('socialService', ['dataService'])
     //   return partOne + hash + partTwo + hash + partThree
     // }
 
-    function teamHash (teamCode) {
-      teamCode = teamCode.toLowerCase()
-      console.log(teamCode)
-      var lookup = {
-        'swa' : 'SwanseaCity',
-        'cry' : 'cpfc'
-      }
-      return lookup[teamCode]
-    }
+    // function teamHash (teamCode) {
+    //   teamCode = teamCode.toLowerCase()
+    //   console.log(teamCode)
+    //   var lookup = {
+    //     'swa' : 'SwanseaCity',
+    //     'cry' : 'cpfc'
+    //   }
+    //   return lookup[teamCode]
+    // }
 
     return twitterFactory
   })
