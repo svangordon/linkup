@@ -25,50 +25,22 @@ var mongoose = require('mongoose'),
     , defaultIcon : {type: String} // href to a default icon
   })
 
-  // User Schema
-  // For users, obv
-  userSchema = new Schema({
-    username: {type: String, required: true, unique: true}
-    , name: {type: String}
-    , password: {type: String, required: true, select: false}
-    , email: {type: String}
-    , teamPref : {type: String}
-    , role: {type: String}
-    , options: {type: Schema.Types.ObjectId, ref: 'Options'}
-  })
-  userSchema.pre('save', function(next) {
-    var user = this;
-
-    // normalize teamPref input
-    console.log('user pre save', user)
-    if (user) user.teamPref = user.teamPref.toLowerCase()
-
-    // Hash password if the pword has been changed or is new
-    if (!user.isModified('password')) return next();
-
-    // generate salt
-    bcrypt.hash(user.password, null, null, function(err, hash) {
-      if (err) return next(err);
-      // change pword to hash
-      user.password = hash;
-      next()
-    })
-  })
-  userSchema.methods.comparePassword = function (password) {
-    var user = this;
-    // console.log('models.js user compare password', password, user.password);
-    return bcrypt.compareSync(password, user.password)
-  }
-
   // Options Schema
   // I haven't figured out what the opts are yet, so...
   optionsSchema = new Schema({
     team : {type: String}
   })
 
+var userSchema = require('./models/userSchema.js')
+var leagueSchema = require('./models/leagueSchema.js')
+var tableSchema = require('./models/tableSchema.js')
+var teamSchema = require('./models/teamSchema.js')
+// var standingSchema = require('./models/standingSchema.js')
+// var fixtureSchema = require('./models/fixtureSchema.js')
+
 module.exports = {
-  News: mongoose.model('News', newsSchema)
-  , Source : mongoose.model('Source', sourceSchema)
-  , User: mongoose.model('User', userSchema)
-  , Options: mongoose.model('Options', optionsSchema)
+  User: mongoose.model('User', userSchema)
+  , League: mongoose.model('League', leagueSchema)
+  , Table: mongoose.model('Table', tableSchema)
+  , Team: mongoose.model('Team', teamSchema)
 }
