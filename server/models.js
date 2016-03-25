@@ -35,12 +35,16 @@ var userSchema = require('./models/userSchema.js')
 var leagueSchema = require('./models/leagueSchema.js')
 var tableSchema = require('./models/tableSchema.js')
 var teamSchema = require('./models/teamSchema.js')
-// var standingSchema = require('./models/standingSchema.js')
-// var fixtureSchema = require('./models/fixtureSchema.js')
+var standingSchema = require('./models/standingSchema.js')
+var fixtureSchema = require('./models/fixtureSchema.js')
+var tweetSchema = require('./models/tweetSchema.js')
 
 module.exports = {
   User: mongoose.model('User', userSchema)
   , League: mongoose.model('League', leagueSchema)
   , Table: mongoose.model('Table', tableSchema)
   , Team: mongoose.model('Team', teamSchema)
+  , Standing : mongoose.model('Standing', standingSchema)
+  , Fixture : mongoose.model('Fixture', fixtureSchema)
+  , Tweet : mongoose.model('Tweet', tweetSchema)
 }

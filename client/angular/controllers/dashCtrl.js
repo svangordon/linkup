@@ -233,11 +233,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
 
   .controller('socialController', function (User, Team, Twitter, $sce) {
     var vm = this
-    Twitter.test()
-      .then(function (resp) {
-        // console.log(resp.data)
-        // vm.tweets = $sce.trustAsHtml(resp.data.html)
-      })
+    // Twitter.test()
+    //   .then(function (resp) {
+    //     // console.log(resp.data)
+    //     // vm.tweets = $sce.trustAsHtml(resp.data.html)
+    //   })
     vm.encodedTweets = []
     User.profile()
       .then(function (resp) {
@@ -250,7 +250,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       .then(function (stream) {
         vm.tweets = stream.data.statuses
         // vm.tweets = vm.tweets.map(cur => cur.id)
-        // console.log(vm.tweets)
+        console.log('tweets', vm.tweets)
         return vm.tweets
       })
       .then(function (tweets) {
@@ -259,7 +259,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         tweets.forEach(function (cur) {
           Twitter.getOne(cur.id_str)
             .then(function(resp) {
-              // console.log('getone response', resp)
+              console.log('getone response', resp.data)
               vm.encodedTweets.push( $sce.trustAsHtml(resp.data.html))
             })
         })

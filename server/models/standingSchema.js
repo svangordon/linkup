@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 
 var standingSchema = new Schema({
   'team' : {type: Schema.Types.ObjectId, ref: 'Team'}
+  , 'teamName' : {type: String}
   , 'matchday' : {type: Number}
   , 'playedGames' : {type: Number}
   , 'points' : {type: Number}
@@ -12,4 +13,22 @@ var standingSchema = new Schema({
   , 'wins' : {type: Number}
   , 'draws' : {type: Number}
   , 'losses' : {type: Number}
+  , 'homeForm' :
+    {
+      "goals" : {type: Number},
+      "goalsAgainst" : {type: Number},
+      "wins" : {type: Number},
+      "draws" : {type: Number},
+      "losses" : {type: Number}
+    }
+  , 'awayForm' :
+  {
+    "goals" : {type: Number},
+    "goalsAgainst" : {type: Number},
+    "wins" : {type: Number},
+    "draws" : {type: Number},
+    "losses" : {type: Number}
+  }
 })
+
+module.exports = standingSchema
