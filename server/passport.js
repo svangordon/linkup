@@ -34,11 +34,9 @@ exports.init = function init (app) {
         if (!user) {
           return done(null, false, {message: 'Incorrect username.'})
         }
-        console.log('password ==', password)
         if (!user.validPassword(password)) {
           return done(null, false, {message: 'Incorrect password.'})
         }
-        console.log('but not here')
         return done (null, user);
       });
     }

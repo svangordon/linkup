@@ -10,7 +10,7 @@ angular.module('authService', [])
         password: password
       })
         .then(function(data) {
-          AuthToken.setToken(data.data.token)
+          // AuthToken.setToken(data.data.token)
           return data.data
         })
     }

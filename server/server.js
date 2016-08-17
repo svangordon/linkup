@@ -72,20 +72,29 @@ app.get('/', function (req, res) {
   res.sendFile('html/index.html', {root: './public'})
 })
 
+// app.get('/dash', function (req, res) {
+//   res.sendFile('html/index.html', {root: './public'})
+// })
+
 // // Authentication
 // app.use('/api/authenticate', authRoutes)
 // // TODO: I moved the middleware below all the routes because it was authenticating the create users routes, should fix that and move back
 // // endpoints
 app.post('/api/authenticate',
-  passport.authenticate('local', { successRedirect: '/',
-                                  failureRedirect: '/login',
-                                  failureFlash: true })
+  passport.authenticate('local', {failureRedirect: '/login',
+                                  failureFlash: true }),
+  function(req, res) { // sucess handler
+    res.json({ //TODO: Make sure that passport is handling saving a token properly, then nix token
+      success: true,
+      message: 'Now you have a token'
+    });
+  }
 );
 
 app.use('/api/fd', fdRoutes)
 app.use('/api/tw', twRoutes)
 app.use('/api/users', userRoutes)
-app.use(authCtrls.middleware)
+// app.use(authCtrls.middleware)
 app.use('/api/me', meRoutes)
 app.use('/api/rss', rssRoutes)
 
