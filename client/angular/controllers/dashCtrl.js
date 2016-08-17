@@ -7,22 +7,22 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       {
         id: 'news',
         name: 'News',
-        href: 'angular/views/pages/dash/rss.html'
+        href: 'public/html/views/pages/dash/rss.html'
       },
       {
         id: 'schedule',
         name: 'Schedule',
-        href: 'angular/views/pages/dash/schedule.html'
+        href: 'public/html/views/pages/dash/schedule.html'
       },
       {
         id: 'table',
         name: 'Table',
-        href: 'angular/views/pages/dash/table.html'
+        href: 'public/html/views/pages/dash/table.html'
       },
       {
         id: 'social',
         name: 'Social',
-        href: 'angular/views/pages/dash/social.html'
+        href: 'public/html/views/pages/dash/social.html'
       }
     ]
 
@@ -85,10 +85,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     // NB: For getting the table scroll to work. timeout to make sure that the ng-repeat is done
     // make
     // aaaaaand it works!
-    $timeout(function() {
-      // $location.hash('row15')
-      // $anchorScroll()
-    }, 2000)
+    // This looks like dead code here?
+    // $timeout(function() {
+    //   // $location.hash('row15')
+    //   // $anchorScroll()
+    // }, 2000)
 
   })
 

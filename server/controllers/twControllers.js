@@ -41,7 +41,11 @@ module.exports = {
   search : function (req, res) {
     var team = req.params.team;
     console.log('search team ===========', team)
-    // TODO: Include search params for other teams (especially before you demo)
+    // This is a dictionary for what terms or hashtags we want to search twitter
+    // for for the various teams. Some of them kind of suck -- for some you get
+    // like a thousand tweets from sketchy SE Asian betting sites and the rest
+    // are calling Cesc Fabregas a cunt. So this should become like 'serve tweets'
+    // and there should be a service that aggregates the tweets that we want and serves them 
     var searchVal = {
       'cry' : '#cpfc'
       , 'thfc' : 'tottenham'

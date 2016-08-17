@@ -1,0 +1,21 @@
+<div class="rss-container dash-frame" ng-controller="rssController as vm"><div class="sandbox"><!-- <div ng-show="vm.onOff" class="highlight">
+      Highlight this box
+    </div>
+    <button ng-click="vm.onOff=!vm.onOff">Toggle</button> --><!-- These styles here weren't ever actually used. I think that I stuck them
+    in when I was messing around with trying to get CSS animations or something like that to work
+   --><style>.rss-card {
+        transition: 0.5s linear all;
+      }
+      /*.highlight.active-add {
+        background: white;
+      }
+      .highlight.active {
+        background: yellow;
+      }
+      .highlight.active-remove {
+        background: black;
+      }*/
+      .highlight.ng-show {
+        transition: 5s linear opacity;
+        opacity:0;
+      }</style></div><div class="scroll-container"><div class="rss-card luCard row" my-repeat-directive ng-repeat="rss in vm.feed | limitTo : 10" ng-click="vm.setActive($index)" ng-class="{'active' : $index === vm.activeCard}"><div class="rss-card-image-container col s2"><img class="rss-card-image" ng-src="{{rss.image.url}}" alt=""></div><div class="rss-card-text col s10"><p class="rss-card-text-title" ng-bind="rss.title"></p><p class="rss-card-text-body news-card" ng-class="{'active' : $index === vm.activeCard}" ng-show="$index === vm.activeCard" ng-bind="rss.description | cardTrim"></p><a class="btn rss-link right" ng-show="$index === vm.activeCard" ng-href="{{rss.link}}" target="_blank">Read</a></div></div></div></div>

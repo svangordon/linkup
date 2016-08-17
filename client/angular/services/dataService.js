@@ -1,5 +1,13 @@
 angular.module('dataService', ['userService'])
 
+  // Handle making the various API calls. The heavy lifting should be moved
+  // to the server, methinks, and all of these should be looked at. There's a couple
+  // of places, if memory serves, where the same function makes the same api call
+  // multiple times, because there's no storing of data. That should be fixed.
+  // I mean, surely these factories can be stateful -- just have them check if they've
+  // got an object and if it's fresh, and if so return that, otherwise get it and
+  // return it. I mean, technically, return a promise either way, but whatever.
+
   .factory('Rss', function($http) {
     var rssFactory = {}
 

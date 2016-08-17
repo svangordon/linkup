@@ -1,3 +1,5 @@
+// TODO: Replace all this silliness with passport.
+
 var db = require('../models'),
   config = require('../config'),
   request = require('request'),

@@ -8,7 +8,7 @@ var express = require('express'),
   // apiRoutes = require('./api_routes.js'),
   cors = require('cors'),
   config = require('./config'),
-  mongodb_url = 'mongodb://159.203.224.140:27017/gaffer',
+  mongodb_url = 'mongodb://localhost:sudo27017/gaffer',
   jwt = require('jsonwebtoken')
 
 
@@ -51,11 +51,11 @@ app.use(cors())
 // Initialize routes to use
 // =============================
 // Static content
-app.use(express.static(__dirname + '/../client'))
+app.use(express.static(__dirname + '/../public'))
 
 // Homepage
 app.get('/', function (req, res) {
-  res.sendFile('index.html', {root: './client/angular/views'})
+  res.sendFile('index.html', {root: './client'})
 })
 
 // Authentication

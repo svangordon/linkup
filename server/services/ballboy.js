@@ -1,4 +1,4 @@
-// ballboy
+// ballboy handles getting an RSS feed
 
 // =====================
 // Requires

@@ -13,25 +13,12 @@
 
   <div class="dash-frames-container">
     <ng-include ng-repeat="frame in vm.dashFrames"  src="frame.href" ng-show="vm.activeFrame === frame.id">
+      <!-- I think there's a better way to do this routing. It seems like it's rendering all of the frames at once,
+        and then hiding / unhiding them. It would be better to only actually render one of the frames (so make the src something programmatic)
+        8/11/16
+      -->
     </ng-include>
-    <div id="preloader" class="preloader-wrapper big active">
-      <div class="spinner-layer spinner-blue-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
-
-  <!-- <div class=""  ng-include="'angular/views/pages/dash/rss.html'"></div>
-  <div class="" ng-include="'angular/views/pages/dash/schedule.html'"></div>
-  <div class="" ng-include="'angular/views/pages/dash/table.html'"></div> -->
 
 </div>
 <script type="text/javascript">
