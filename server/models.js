@@ -28,7 +28,7 @@ var mongoose = require('mongoose'),
   userSchema = new Schema({
     username: {type: String, required: true, unique: true}
     , name: {type: String}
-    , password: {type: String, required: true, select: false}
+    , password: {type: String, required: true, select: true}
     , email: {type: String}
     , teamPref : {type: String}
     , role: {type: String}
@@ -52,8 +52,9 @@ var mongoose = require('mongoose'),
       next()
     })
   })
-  userSchema.methods.comparePassword = function (password) {
+  userSchema.methods.validPassword = function (password) {
     var user = this;
+    console.log('in valid password, pword ==', password, 'user.pword ==', user.password);
     // console.log('models.js user compare password', password, user.password);
     return bcrypt.compareSync(password, user.password)
   }

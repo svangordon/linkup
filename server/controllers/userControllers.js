@@ -74,7 +74,7 @@ var db = require('../models'),
             res.json({success: false, message: 'Authentication failed. User not found.'})
           } else if (user) {
           // check password
-            var validPassword = user.comparePassword(req.body.password);
+            var validPassword = user.validPassword(req.body.password);
             if (!validPassword) {
               res.json({success: false, message: 'Authentication failed. Invalid password'})
             } else {

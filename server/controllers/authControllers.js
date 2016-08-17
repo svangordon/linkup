@@ -1,4 +1,5 @@
-// TODO: Replace all this silliness with passport.
+// TODO: Replace all this silliness with passport. Personally, i think passport is cleaner than jwt
+// but who knows, maybe that's just because i learned passport more recently.
 
 var db = require('../models'),
   config = require('../config'),
@@ -18,7 +19,7 @@ module.exports = {
           res.json({success: false, message: 'Authentication failed. User not found.'})
         } else if (user) {
         // check password
-          var validPassword = user.comparePassword(req.body.password);
+          var validPassword = user.validPassword(req.body.password);
           if (!validPassword) {
             res.json({success: false, message: 'Authentication failed. Invalid password'})
           } else {
