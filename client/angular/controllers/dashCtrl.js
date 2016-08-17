@@ -219,7 +219,6 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       .then(function(resp){
         vm.userTeam = resp.data
         return vm.userTeam
-        console.log('user team',vm.userTeam)
       })
       .then(function (resp) {
         // This then call is vestigial

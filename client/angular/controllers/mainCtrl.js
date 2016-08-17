@@ -2,7 +2,6 @@
 angular.module('mainCtrl', [])
 
 .controller('mainController', function($rootScope, $location, Auth, User) {
-
 	var vm = this;
 
 	vm.atHome = function () {
@@ -78,13 +77,20 @@ angular.module('mainCtrl', [])
 
 	// For guest login
 	vm.guest = function() {
-		vm.loginData = {}
-		vm.loginData.username = 'guest'
-		vm.loginData.password = 'password'
+		vm.loginData = {};
+		vm.loginData.username = 'guest';
+		vm.loginData.password = 'password';
 	}
+
+	// Surely this is initialized somewhere else...?
+	vm.loginData = {
+		username: "",
+		password: ""
+	};
 
 	// function to handle login form
 	vm.doLogin = function() {
+		console.log('do login fired')
 		vm.processing = true;
 
 		vm.loginData.username = vm.loginData.username.toLowerCase()
