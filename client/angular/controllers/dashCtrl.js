@@ -7,22 +7,22 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       {
         id: 'news',
         name: 'News',
-        href: 'public/html/views/pages/dash/rss.html'
+        href: 'html/views/pages/dash/rss.html'
       },
       {
         id: 'schedule',
         name: 'Schedule',
-        href: 'public/html/views/pages/dash/schedule.html'
+        href: 'html/views/pages/dash/schedule.html'
       },
       {
         id: 'table',
         name: 'Table',
-        href: 'public/html/views/pages/dash/table.html'
+        href: 'html/views/pages/dash/table.html'
       },
       {
         id: 'social',
         name: 'Social',
-        href: 'public/html/views/pages/dash/social.html'
+        href: 'html/views/pages/dash/social.html'
       }
     ]
 

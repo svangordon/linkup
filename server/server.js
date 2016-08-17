@@ -55,7 +55,7 @@ app.use(express.static(__dirname + '/../public'))
 
 // Homepage
 app.get('/', function (req, res) {
-  res.sendFile('index.html', {root: './client'})
+  res.sendFile('html/index.html', {root: './public'})
 })
 
 // Authentication

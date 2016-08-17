@@ -33,7 +33,7 @@ gulp.task('build-stylus', () => {
     .pipe(sourcemaps.init())
     .pipe(stylus())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/assets/css'));
+    .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('build-js', () => {
@@ -44,15 +44,15 @@ gulp.task('build-js', () => {
     }))
     .pipe(concat('bundle.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/assets/javascript'));
+    .pipe(gulp.dest('public/javascript'));
 });
 
 gulp.task('build-views', () => {
-  return gulp.src(['client/*.html', 'client/angular/**/*.html'])
+  return gulp.src(['client/*.html', 'client/angular/views/**/*.html'])
     .pipe(sourcemaps.init())
     .pipe(htmlmin({
       collapseWhitespace: true
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/assets/html'))
+    .pipe(gulp.dest('public/html'))
 });

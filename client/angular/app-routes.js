@@ -5,33 +5,33 @@ angular.module('linkupRoutes', ['ngRoute'])
     $routeProvider
       // homepage
       .when('/', {
-        templateUrl : 'public/html/pages/home.html'
+        templateUrl : 'html/pages/home.html'
         // , controller : 'homeController'
         // , controllerAs : 'home'
       })
 
       // route for about page
       .when('/about', {
-        templateUrl : 'public/html/pages/about.html'
+        templateUrl : 'html/pages/about.html'
         // , controller : 'aboutController'
         // , controllerAs : 'about'
       })
 
       // login route
       .when('/login', {
-        templateUrl : 'public/html/pages/login.html'
+        templateUrl : 'html/pages/login.html'
         , controller : 'mainController'
         , controllerAs : 'login'
       })
 
       .when('/dash', {
-        templateUrl: 'public/html/pages/dash/dash.html',
+        templateUrl: 'html/pages/dash/dash.html',
         controller: 'dashController',
         controllerAs: 'vm'
       })
 
       .when('/signup', {
-        templateUrl: 'public/html/pages/signup.html',
+        templateUrl: 'html/pages/signup.html',
         controller: 'userCreateController',
         controllerAs: 'vm'
       })
