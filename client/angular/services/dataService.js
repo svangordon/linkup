@@ -12,6 +12,7 @@ angular.module('dataService', ['userService'])
     var rssFactory = {}
 
     rssFactory.teamFeed = function (team) {
+      // console.log('team feed', team)
       return $http.get('/api/rss/team/' + team)
     }
 

@@ -102,7 +102,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
     vm.setActive = function (index) {
       // if they're clicking on the active card, close it
       vm.activeCard = vm.activeCard !== index ? index : null
-      console.log(vm.activeCard)
+      // console.log(vm.activeCard)
     }
 
     // TODO: I can't find a way to do this in the dash crtl and pass it,
@@ -132,7 +132,7 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
         'lost' : false,
         'draw' : false,
       }
-      // TODO: do this elegant
+      // TODO: do this elegant (ternary operators, etc)
       var homeGoals = fixture.result.goalsHomeTeam
       var awayGoals = fixture.result.goalsAwayTeam
       var homeName = fixture.homeTeamName
@@ -250,11 +250,11 @@ angular.module('dashCtrl', ['dataService','authService','userService'])
       .then(function (stream) {
         vm.tweets = stream.data.statuses
         // vm.tweets = vm.tweets.map(cur => cur.id)
-        console.log(vm.tweets)
+        // console.log(vm.tweets)
         return vm.tweets
       })
       .then(function (tweets) {
-        console.log('tweets',tweets)
+        // console.log('tweets',tweets)
         // return Twitter.getOne(tweets[0].id_str)
         tweets.forEach(function (cur) {
           Twitter.getOne(cur.id_str)

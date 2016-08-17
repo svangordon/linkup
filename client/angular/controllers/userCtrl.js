@@ -4,19 +4,6 @@ angular.module('userCtrl', ['userService'])
 
 	var vm = this;
 
-	// set a processing variable to show loading things
-	vm.processing = true;
-
-	// grab all the users at page load
-	User.all()
-		.success(function(data) {
-
-			// when all the users come back, remove the processing variable
-			vm.processing = false;
-
-			// bind the users that come back to vm.users
-			vm.users = data;
-		});
 
 	// function to delete a user
 	vm.deleteUser = function(id) {
@@ -55,6 +42,7 @@ angular.module('userCtrl', ['userService'])
 		.then(function(resp) {
 			vm.teams = resp.data.teams
 
+			// TODO: Turn this into a $digest or something?
 			$timeout(function() {
         $('select').material_select()
       }, 0)

@@ -2,6 +2,8 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   bcrypt = require('bcrypt-nodejs'),
 
+  // lol none of these are used except for user
+
   // News Model
   // Schema for the news items that will be displayed on cards
   newsSchema = new Schema({
