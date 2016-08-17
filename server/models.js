@@ -33,7 +33,7 @@ var mongoose = require('mongoose'),
     , teamPref : {type: String}
     , role: {type: String}
     , options: {type: Schema.Types.ObjectId, ref: 'Options'}
-  })
+  });
   userSchema.pre('save', function(next) {
     var user = this;
 
